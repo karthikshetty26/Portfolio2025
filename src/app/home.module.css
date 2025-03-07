@@ -1,0 +1,13 @@
+.container {
+    width: 100%;
+    position: relative;
+    background-color: var(--bg-dark);
+}
+
+.container_main {
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+    margin: auto;
+    position: relative;
+}
