@@ -70,10 +70,10 @@ export default function NavbarUi() {
                     className={isMenuOpen ? navCSS.open : ''}
                     id={navCSS.navIcon}
                 >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span className={navCSS.span_icon}></span>
+                    <span className={navCSS.span_icon}></span>
+                    <span className={navCSS.span_icon}></span>
+                    <span className={navCSS.span_icon}></span>
                 </button>
             </div>
 

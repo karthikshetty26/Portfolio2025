@@ -72,7 +72,7 @@
     rotate: 180deg;
 }
 
-#navIcon span {
+#navIcon .span_icon {
     display: block;
     position: absolute;
     height: 3px;
@@ -85,35 +85,35 @@
     transition: all .25s ease-in-out;
 }
 
-#navIcon:hover span {
+#navIcon:hover .span_icon {
     background: var(--brand-primary);
 }
 
-#navIcon span:nth-child(1) {
+#navIcon .span_icon:nth-child(1) {
     top: 4px;
 }
 
-#navIcon span:nth-child(2),
-#navIcon span:nth-child(3) {
+#navIcon .span_icon:nth-child(2),
+#navIcon .span_icon:nth-child(3) {
     top: 9px;
 }
 
-#navIcon span:nth-child(4) {
+#navIcon .span_icon:nth-child(4) {
     top: 14px;
 }
 
-#navIcon.open span:nth-child(1),
-#navIcon.open span:nth-child(4) {
+#navIcon.open .span_icon:nth-child(1),
+#navIcon.open .span_icon:nth-child(4) {
     top: 18px;
     width: 0%;
     left: 50%;
 }
 
-#navIcon.open span:nth-child(2) {
+#navIcon.open .span_icon:nth-child(2) {
     transform: rotate(45deg);
 }
 
-#navIcon.open span:nth-child(3) {
+#navIcon.open .span_icon:nth-child(3) {
     transform: rotate(-45deg);
 }
 
@@ -121,16 +121,18 @@
 .side_nav {
     transform: scaleX(0);
     transform-origin: right;
-    transition: all 550ms ease-in-out;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 998;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.342);
+    transition: all 450ms ease-in-out;
 }
 
 .side_nav.show {
     transform: scaleX(1);
-    position: fixed;
-    width: 100%;
-    height: 100dvh;
-    z-index: 998;
-    background-color: rgba(0, 0, 0, 0.342);
 }
 
 .hold_nav {
@@ -166,7 +168,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: all 750ms ease-in-out;
+    transition: all 950ms ease-in-out;
 }
 
 .hold_nav.show .show_menu_values li {
