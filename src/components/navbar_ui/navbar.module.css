@@ -1,3 +1,4 @@
+/* Theme toggle */
 .theme_div {
     position: fixed;
     right: 130px;
@@ -41,6 +42,7 @@
     background-color: var(--background);
 }
 
+/* Menu button */
 .menu_div {
     position: fixed;
     right: 30px;
@@ -57,13 +59,7 @@
     border-radius: 0.4rem;
     border: none;
     background: transparent;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
     transform: rotate(0deg);
-    -webkit-transition: all .9s ease-in-out;
-    -moz-transition: all .9s ease-in-out;
-    -o-transition: all .9s ease-in-out;
     transition: all .9s ease-in-out;
     cursor: pointer;
 }
@@ -85,13 +81,7 @@
     border-radius: 9px;
     opacity: 1;
     left: 4;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
     transform: rotate(0deg);
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    -o-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
 }
 
@@ -112,43 +102,30 @@
     top: 14px;
 }
 
-#navIcon.open span:nth-child(1) {
-    top: 18px;
-    width: 0%;
-    left: 50%;
-}
-
-#navIcon.open span:nth-child(2) {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-#navIcon.open span:nth-child(3) {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-}
-
+#navIcon.open span:nth-child(1),
 #navIcon.open span:nth-child(4) {
     top: 18px;
     width: 0%;
     left: 50%;
 }
 
-/* Side menu acction container */
+#navIcon.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
 
+#navIcon.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+/* Side navigation */
 .side_nav {
-    transform: scale(0);
-    transform-origin: right bottom;
-    transition: all 350ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: all 550ms ease-in-out;
 }
 
 .side_nav.show {
-    transform: scale(1);
-    transform-origin: right top;
+    transform: scaleX(1);
     position: fixed;
     width: 100%;
     height: 100dvh;
@@ -157,11 +134,17 @@
 }
 
 .hold_nav {
+    transform: scaleX(0);
+    transform-origin: right;
     float: right;
     width: min(80%, 500px);
-    height: 100%;
+    height: 100vh;
     background-color: var(--background);
-    transition: all 550ms ease-in-out;
+    transition: all 650ms ease-in-out;
+}
+
+.hold_nav.show {
+    transform: scaleX(1);
 }
 
 .show_menu_values {
@@ -173,23 +156,26 @@
     flex-direction: column;
 }
 
-.show_menu_values li {
+.hold_nav .show_menu_values li {
+    transform: scaleY(0);
+    transform-origin: bottom;
     font-size: 3rem;
     list-style: none;
     font-weight: 800;
     cursor: pointer;
-    transition: all 350ms ease-in-out;
     display: flex;
     align-items: center;
     gap: 10px;
-    /* Add gap between icon and text */
+    transition: all 750ms ease-in-out;
+}
+
+.hold_nav.show .show_menu_values li {
+    transform: scaleY(1);
 }
 
 .show_menu_values li svg {
     opacity: 0;
-    /* Hide by default */
     visibility: hidden;
-    /* Hide without taking space */
     transition: opacity 350ms ease-in-out, visibility 350ms ease-in-out;
 }
 
@@ -199,9 +185,7 @@
 
 .show_menu_values li:hover svg {
     opacity: 1;
-    /* Show on hover */
     visibility: visible;
-    /* Show on hover */
 }
 
 @media only screen and (max-width: 600px) {
