@@ -19,8 +19,12 @@
     background-color: var(--foreground);
     border: none;
     cursor: pointer;
-    transition: all 0.5s ease;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.308);
+    transition: all 0.9s ease;
+}
+
+.theme_div:hover .dark_light_btn {
+    rotate: 45deg;
 }
 
 .dark_light_btn:hover {
@@ -124,6 +128,7 @@
 /* Side navigation */
 .side_nav {
     transform: scaleX(0);
+    opacity: 0;
     transform-origin: right;
     position: fixed;
     right: 0;
@@ -131,12 +136,14 @@
     z-index: 998;
     width: 100%;
     height: 100dvh;
-    background-color: rgba(0, 0, 0, 0.342);
+    background-color: rgba(0, 0, 0, 0);
     transition: all 450ms ease-in-out;
 }
 
 .side_nav.show {
     transform: scaleX(1);
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.342);
 }
 
 .hold_nav {
