@@ -8,10 +8,10 @@ const ArrowTopRight = memo(() => (
         <path d="M5.63589 19.7784L4.22169 18.3644L15.657 6.92908L10.0712 6.92908V4.92908L19.0712 4.92908L19.0712 13.9291H17.0712L17.0712 8.34326L5.63589 19.7784Z"></path>
     </svg>
 ));
-ArrowTopRight.displayName = 'ArrowTopRight'; 
+ArrowTopRight.displayName = 'ArrowTopRight';
 
 // Navigation items list
-const MENU_ITEMS = ['HOME', 'PROJECT', 'BLOG', 'CONTACT'];
+const MENU_ITEMS = ['HOME', 'ABOUT', 'PROJECT', 'BLOG', 'CONTACT'];
 
 export default function NavbarUi() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,6 +27,13 @@ export default function NavbarUi() {
 
     // Toggle menu function
     const toggleMenu = () => setIsMenuOpen(prev => !prev);
+
+    // Smooth scroll handler
+    const handleSmoothScroll = (e) => {
+        e.preventDefault();
+        const href = e.currentTarget.getAttribute('href');
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     // Initialize theme from local storage or system preference
     useEffect(() => {
@@ -84,7 +91,11 @@ export default function NavbarUi() {
                     {/* Link listing */}
                     <ul className={navCSS.show_menu_values}>
                         {MENU_ITEMS.map((item) => (
-                            <li key={item}><ArrowTopRight /> {item}</li>
+                            <li key={item}>
+                                <a href={`#${item}`} onClick={handleSmoothScroll}>
+                                    <ArrowTopRight /> {item}
+                                </a>
+                            </li>
                         ))}
                     </ul>
                 </main>
