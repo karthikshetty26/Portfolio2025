@@ -15,14 +15,8 @@
 
   /* Font */
   --font-family-primary: "Poppins", sans-serif;
+  --font-family-secondary: "Jersey 10", sans-serif;;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #313131;
-    --foreground: #ededed;
-  }
-} */
 
 [data-theme="dark"] {
   --background: #313131;
