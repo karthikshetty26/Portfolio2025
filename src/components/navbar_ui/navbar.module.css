@@ -1,14 +1,15 @@
 /* Theme toggle */
 .theme_div {
     position: fixed;
-    right: 130px;
-    top: 31px;
+    right: 135px;
+    top: 41px;
     z-index: 998;
     display: flex;
     align-items: center;
     cursor: pointer;
     font-family: var(--font-family-secondary);
     letter-spacing: 2px;
+    font-size: 21px;
 }
 
 .dark_light_btn {
@@ -52,13 +53,14 @@
 .menu_div {
     position: fixed;
     right: 30px;
-    top: 30px;
+    top: 40px;
     z-index: 999;
     display: flex;
     align-items: center;
     cursor: pointer;
     font-family: var(--font-family-secondary);
     letter-spacing: 2px;
+    font-size: 21px;
 }
 
 #navIcon {
