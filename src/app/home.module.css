@@ -1,13 +1,203 @@
-.container {
-    width: 100%;
-    position: relative;
-    background-color: var(--bg-dark);
-}
-
 .container_main {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1400px;
+    height: fit-content;
+    min-height: 100dvh;
     padding: 20px;
+    padding-bottom: 300px;
+    padding-top: 0;
     margin: auto;
     position: relative;
+}
+
+/* HERO */
+.hero_section {
+    width: 100%;
+    height: 85vh;
+    max-height: 1000px;
+    padding-top: 20px;
+}
+
+.hero_text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.hero_section_hr {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    opacity: 0.1;
+    background-color: var(--foreground-05);
+}
+
+.hero_text h1 {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--foreground);
+    letter-spacing: 0.3rem;
+    line-height: 0;
+    opacity: 0.8;
+    cursor: context-menu;
+}
+
+.hero_text h1 span {
+    font-family: var(--font-family-secondary);
+    transition: all 250ms ease-in-out;
+}
+
+.hero_text h1 span:hover {
+    text-shadow: 0 0 10px var(--brand-primary-op-50);
+}
+
+.hero_text .intro {
+    position: absolute;
+    bottom: 28%;
+    left: 10;
+    z-index: 2;
+}
+
+.hero_text .intro .intro_start {
+    font-size: 1rem;
+    line-height: 4rem;
+    letter-spacing: 2px;
+    color: var(--foreground-05);
+    transition: all 250ms ease-in-out;
+}
+
+.hero_text .intro .role {
+    font-size: 4rem;
+    line-height: 4rem;
+    letter-spacing: -4px;
+    color: var(--foreground);
+    cursor: context-menu;
+    transition: all 250ms ease-in-out;
+}
+
+.hero_text .intro .role span:nth-child(1) {
+    font-size: 10rem;
+    line-height: 4rem;
+    letter-spacing: 6px;
+    color: var(--brand-primary);
+    font-family: var(--font-family-secondary);
+}
+
+.hero_text .intro .role span.location {
+    font-size: 2rem;
+    line-height: 4rem;
+    letter-spacing: 6px;
+    color: var(--brand-primary-op-50);
+}
+
+.number_deco {
+    position: absolute;
+    right: 40px;
+    top: 160px;
+    opacity: 0.2;
+}
+
+.hero_container {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.hero_container_content {
+    width: fit-content;
+    height: fit-content;
+    text-align: right;
+    line-height: 1.5rem;
+}
+
+.hero_container_content:nth-child(1),
+.hero_container_content:nth-child(2) {
+    margin-bottom: 40px;
+}
+
+.hero_container_content span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--brand-primary);
+    transition: all 350ms ease-in-out;
+}
+
+.hero_container_content p {
+    font-size: 1rem;
+    color: var(--foreground);
+    text-decoration: underline;
+    transition: all 350ms ease-in-out;
+}
+
+/* ABOUT */
+.about_section {
+    width: 100%;
+    height: fit-content;
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+.about_section h2 {
+    width: 90%;
+    margin-top: -10px;
+    margin-bottom: 60px;
+    font-weight: 400;
+    font-size: 3.75rem;
+    line-height: 1.2;
+    color: var(--foreground-05);
+    cursor: context-menu;
+    transition: all 350ms ease-in-out;
+}
+
+.about_section h2 strong {
+    opacity: 0.5;
+}
+
+.about_section .about_content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+    padding: 20px 20px 0 20px;
+    background-color: var(--brand-primary);
+}
+
+.about_section .about_content p {
+    width: 60%;
+    padding-bottom: 40px;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    text-align: justify;
+    color: var(--background);
+    transition: all 350ms ease-in-out;
+}
+
+[data-theme="light"] .about_section .about_content p {
+    color: var(--foreground);
+}
+
+.about_section .about_content p strong {
+    opacity: 0.7;
+}
+
+.circular_hold {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
