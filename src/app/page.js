@@ -1,8 +1,7 @@
-import homeCSS from './Home.module.css';
+import HOMECSS from './Home.module.css';
 import CircularText from '@/components/rotating-circular-text/rotating-circular-text';
 
 // Home Component - Main landing page for the portfolio website
-
 export default function Home() {
   // Map of special characters that need custom styling
   // Key represents the style class name, value is an array of characters to apply that style to
@@ -37,7 +36,7 @@ export default function Home() {
           }
 
           return (
-            <span key={`char-${index}-${char}`} className={homeCSS[charClass]}>
+            <span key={`char-${index}-${char}`} className={HOMECSS[charClass]}>
               {char}
             </span>
           );
@@ -47,33 +46,34 @@ export default function Home() {
   };
 
   return (
-    <main className={homeCSS.container_main}>
+    <main className={HOMECSS.container_main}>
+
       {/* Hero section with introduction */}
-      <section className={homeCSS.hero_section} id='HOME'>
-        <div className={homeCSS.hero_text}>
+      <section className={HOMECSS.hero_section} id='HOME'>
+        <div className={HOMECSS.hero_text}>
           <h1>
             <span>Karthik</span> <span>Shetty</span>
           </h1>
-          <div className={homeCSS.hero_section_hr}></div>
+          <div className={HOMECSS.hero_section_hr}></div>
 
-          <div className={homeCSS.intro}>
-            <p className={homeCSS.intro_start}>Hey there! I'm a passionate</p>
-            <h2 className={homeCSS.role}>
+          <div className={HOMECSS.intro}>
+            <p className={HOMECSS.intro_start}>Hey there! I'm a passionate</p>
+            <h2 className={HOMECSS.role}>
               <span>FULLSTACK</span><br />
               <span>Web&nbsp;&nbsp;&nbsp;Developer</span>
               &nbsp;&nbsp;
-              <span className={homeCSS.location}>from India.</span>
+              <span className={HOMECSS.location}>from India.</span>
             </h2>
           </div>
 
           {/* Stats container showing experience metrics */}
-          <div className={homeCSS.hero_container}>
+          <div className={HOMECSS.hero_container}>
             {[
               { value: '2+', description: 'Years of Experience' },
               { value: '6', description: 'Completed Projects' },
               { value: '4.6k+', description: 'Hours Worked' }
             ].map((stat, index) => (
-              <div key={`stat-${index}`} className={homeCSS.hero_container_content}>
+              <div key={`stat-${index}`} className={HOMECSS.hero_container_content}>
                 <span>{stat.value}</span>
                 <p>{stat.description}</p>
               </div>
@@ -83,12 +83,12 @@ export default function Home() {
       </section>
 
       {/* About section with professional summary */}
-      <section className={homeCSS.about_section} id='ABOUT'>
+      <section className={HOMECSS.about_section} id='ABOUT'>
         <h2>
           I specialize in building <strong>scalable</strong>, <strong>high-performance</strong> web applications 
           with a strong focus on usability, efficiency, and seamless user experiences.
         </h2>
-        <div className={homeCSS.about_content}>
+        <div className={HOMECSS.about_content}>
           <p>
             with a <strong>strong</strong> background in both frontend and backend development, 
             i love turning ideas into functional, user-friendly solutions. whether it's optimizing 
@@ -98,7 +98,7 @@ export default function Home() {
             constantly learning and improving, i aim to create impactful digital solutions that 
             align with <strong>business goals</strong> and enhance user experiences.
           </p>
-          <div className={homeCSS.circular_hold}>
+          <div className={HOMECSS.circular_hold}>
             <CircularText
               text="•  Hi  I'm  Karthik  Shetty "
               diameter={200}
