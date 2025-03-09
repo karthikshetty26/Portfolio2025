@@ -11,7 +11,15 @@ const ArrowTopRight = memo(() => (
 ArrowTopRight.displayName = 'ArrowTopRight';
 
 // Navigation items list
-const MENU_ITEMS = ['HOME', 'ABOUT', 'PROJECT', 'BLOG', 'CONTACT'];
+const MENU_ITEMS = [
+    { name: 'HOME', href: 'home' },
+    { name: 'ABOUT', href: 'about' },
+    { name: 'MY STACK', href: 'stack' },
+    { name: 'PROJECT', href: 'project' },
+    { name: 'BLOG', href: 'blog' },
+    { name: 'CONTACT', href: 'contact' }
+  ];
+  
 
 export default function NavbarUi() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -91,9 +99,9 @@ export default function NavbarUi() {
                     {/* Link listing */}
                     <ul className={navCSS.show_menu_values}>
                         {MENU_ITEMS.map((item) => (
-                            <li key={item}>
-                                <a href={`#${item}`} onClick={handleSmoothScroll}>
-                                    <ArrowTopRight /> {item}
+                            <li key={item.href}>
+                                <a href={`#${item.href}`} onClick={handleSmoothScroll}>
+                                    <ArrowTopRight /> {item.name}
                                 </a>
                             </li>
                         ))}
