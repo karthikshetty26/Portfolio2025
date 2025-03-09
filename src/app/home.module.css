@@ -149,6 +149,110 @@
     transition: all 350ms ease-in-out;
 }
 
+/* Bellow 900px */
+@media only screen and (max-width: 900px) {
+
+    /* Role text styling */
+    .hero_text .intro .role {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    /* "FULLSTACK" text styling */
+    .hero_text .intro .role span:nth-child(1) {
+        font-size: 8rem;
+        line-height: 2.5rem;
+        letter-spacing: 6px;
+    }
+
+    /* Location text styling */
+    .hero_text .intro .role span.location {
+        font-size: 1.3rem;
+        line-height: 0rem;
+        letter-spacing: 4px;
+    }
+
+    /* Stats container positioning */
+    .hero_container {
+        flex-direction: row;
+    }
+
+    /* Remove space between stat boxes */
+    .hero_container_content:nth-child(1),
+    .hero_container_content:nth-child(2) {
+        margin-bottom: 0;
+        margin-right: 40px;
+    }
+}
+
+/* Bellow 600px */
+@media only screen and (max-width: 600px) {
+
+    /* Contains introduction and personal information */
+    .hero_section {
+        height: 80vh;
+    }
+
+    /* Name styling at top of page */
+    .hero_text h1 {
+        top: 70px;
+        left: 10px;
+    }
+
+    /* Horizontal rule below name */
+    .hero_section_hr {
+        top: 110px;
+    }
+
+    /* Introduction container placement */
+    .hero_text .intro {
+        bottom: 38%;
+        left: 10px;
+    }
+
+    /* Role text styling */
+    .hero_text .intro .role {
+        font-size: 2rem;
+        line-height: 1.4rem;
+        letter-spacing: 1px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* "FULLSTACK" text styling */
+    .hero_text .intro .role span:nth-child(1) {
+        font-size: 4.5rem;
+        line-height: 1rem;
+    }
+
+    /* Location text styling */
+    .hero_text .intro .role span.location {
+        font-size: 1rem;
+        line-height: 0rem;
+        letter-spacing: 4px;
+        margin-top: -8px;
+    }
+
+    /* Individual stat box styling */
+    .hero_container_content {
+        text-align: left;
+    }
+
+    /* Remove space between stat boxes */
+    .hero_container_content:nth-child(1) {
+        margin-bottom: 0;
+        margin-right: 0;
+    }
+
+    .hero_container_content:nth-child(2),
+    .hero_container_content:nth-child(3) {
+        margin-bottom: 0;
+        margin-right: 0;
+        margin-left: 10px;
+    }
+}
+
+
 /* ABOUT SECTION */
 /* Contains professional description and circular text */
 .about_section {
@@ -158,9 +262,17 @@
     padding-top: 20px;
 }
 
+/* Empty box: to maintain space when the user selects About in the navigation sidebar. */
+.about_blank {
+    width: 100%;
+    height: 65px;
+    margin-bottom: 60px;
+    background-color: var(--brand-primary);
+}
+
 /* About section headline styling */
 .about_section h2 {
-    width: 90%;
+    width: 85%;
     margin-top: -10px;
     margin-bottom: 60px;
     font-weight: 400;
@@ -214,4 +326,50 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Bellow 900px */
+@media only screen and (max-width: 900px) {
+
+    /* About section headline styling */
+    .about_section h2 {
+        width: 100%;
+        font-size: 3rem;
+    }
+}
+
+/* Bellow 600px */
+@media only screen and (max-width: 600px) {
+
+    /* Empty box */
+    .about_blank {
+        height: 60px;
+        margin-bottom: 40px;
+    }
+
+    /* About section headline styling */
+    .about_section h2 {
+        font-size: 1.9rem;
+        margin-bottom: 40px;
+    }
+
+    /* Container for text and circular element */
+    .about_section .about_content {
+        flex-direction: column;
+    }
+
+    /* About paragraph text styling */
+    .about_section .about_content p {
+        width: 100%;
+        padding: 20px 0 0 0;
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    /* Container for circular text component */
+    .circular_hold {
+        width: 100%;
+        padding: 20px 0 20px 0;
+    }
+
 }

@@ -84,6 +84,9 @@ export default function Home() {
 
       {/* About section with professional summary */}
       <section className={HOMECSS.about_section} id='ABOUT'>
+
+      {/* Empty box to maintain space when the user selects About in the navigation sidebar. */}
+        <div className={HOMECSS.about_blank}></div>
         <h2>
           I specialize in building <strong>scalable</strong>, <strong>high-performance</strong> web applications 
           with a strong focus on usability, efficiency, and seamless user experiences.
