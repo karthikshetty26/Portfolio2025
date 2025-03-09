@@ -268,13 +268,19 @@
         font-size: 16px;
     }
 
-    /* Adjust menu content */
-    .show_menu_values {
-        margin-top: 25vh;
-        margin-left: 3vw;
+    /* Hover color effect for hamburger bars */
+    #navIcon:hover .span_icon {
+        background: var(--foreground);
     }
 
-    .show_menu_values li {
+    /* Adjust menu content */
+    .show_menu_values {
+        margin-top: 20vh;
+        margin-left: 5vw;
+    }
+
+    /* Navigation list items */
+    .hold_nav .show_menu_values li {
         font-size: 2.5rem;
     }
 }
