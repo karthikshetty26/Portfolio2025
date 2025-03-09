@@ -1,5 +1,6 @@
-import HOMECSS from './Home.module.css';
+import HOMECSS from './Landing.module.css';
 import CircularText from '@/components/rotating-circular-text/rotating-circular-text';
+import TechItem from '@/components/tech-item/tech-item'
 
 // Home Component - Main landing page for the portfolio website
 export default function Home() {
@@ -20,13 +21,13 @@ export default function Home() {
   const SplitText = ({ text }) => {
     // Early return for empty text to avoid unnecessary processing
     if (!text) return null;
-    
+
     return (
       <>
         {text.split('').map((char, index) => {
           // Find appropriate class for this character
           let charClass = '';
-          
+
           // Check if current character matches any in our special characters map
           for (const [key, chars] of Object.entries(specialChars)) {
             if (chars.includes(char.toLowerCase())) {
@@ -45,11 +46,31 @@ export default function Home() {
     );
   };
 
+  // Tech stack data structure
+  const TECH_STACK = [
+    {
+      category: "Frontend",
+      technologies: ["HTML", "CSS", "JavaScript", "Typescript", "Angular", "React", "Next.Js", "SASS", "Bootstrap"]
+    },
+    {
+      category: "Backends",
+      technologies: ["Java", "Spring Boot", "Node.js", "Express.js", "RESTful APIs"]
+    },
+    {
+      category: "Database",
+      technologies: ["MySQL", "PostgreSQL"]
+    },
+    {
+      category: "Tools & Other",
+      technologies: ["Git", "GitHub", "Figma", "Postman", "WordPress"]
+    }
+  ];
+
   return (
     <main className={HOMECSS.container_main}>
 
       {/* Hero section with introduction */}
-      <section className={HOMECSS.hero_section} id='HOME'>
+      <section className={HOMECSS.hero_section} id='home'>
         <div className={HOMECSS.hero_text}>
           <h1>
             <span>Karthik</span> <span>Shetty</span>
@@ -83,22 +104,22 @@ export default function Home() {
       </section>
 
       {/* About section with professional summary */}
-      <section className={HOMECSS.about_section} id='ABOUT'>
+      <section className={HOMECSS.about_section} id='about'>
 
-      {/* Empty box to maintain space when the user selects About in the navigation sidebar. */}
+        {/* Empty box to maintain space when the user selects About in the navigation sidebar. */}
         <div className={HOMECSS.about_blank}></div>
         <h2>
-          I specialize in building <strong>scalable</strong>, <strong>high-performance</strong> web applications 
+          I specialize in building <strong>scalable</strong>, <strong>high-performance</strong> web applications
           with a strong focus on usability, efficiency, and seamless user experiences.
         </h2>
         <div className={HOMECSS.about_content}>
           <p>
-            with a <strong>strong</strong> background in both frontend and backend development, 
-            i love turning ideas into functional, user-friendly solutions. whether it's optimizing 
-            UI for seamless <strong>user experiences</strong> or building robust backend architectures, 
+            with a <strong>strong</strong> background in both frontend and backend development,
+            i love turning ideas into functional, user-friendly solutions. whether it's optimizing
+            UI for seamless <strong>user experiences</strong> or building robust backend architectures,
             i'm always eager to push the boundaries of web development.
             <br /><br />
-            constantly learning and improving, i aim to create impactful digital solutions that 
+            constantly learning and improving, i aim to create impactful digital solutions that
             align with <strong>business goals</strong> and enhance user experiences.
           </p>
           <div className={HOMECSS.circular_hold}>
@@ -110,6 +131,26 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Stack section */}
+      <section className={HOMECSS.stack_section} id='stack'>
+        {/* Map through each stack category */}
+        {TECH_STACK.map((stack, index) => (
+          <div key={index} className={HOMECSS.stack_container}>
+            {/* Display category name */}
+            <div className={HOMECSS.stack_category}>{stack.category}</div>
+            {/* Display technologies list */}
+            <ul className={HOMECSS.stack_list}>
+              {/* Map through technologies in the current category */}
+              {stack.technologies.map((techName, techIndex) => (
+                <TechItem key={techIndex} name={techName} />
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+
+      
     </main>
   );
 }
