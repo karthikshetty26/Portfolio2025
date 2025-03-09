@@ -1,0 +1,62 @@
+/* Tech Item Container */
+.tech_item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 20px;
+    border-radius: 0.5rem;
+    cursor: context-menu;
+    transition: transform 0.2s ease;
+}
+
+/* Hover Effect */
+.tech_item:hover {
+    transform: translateY(-2px);
+}
+
+/* Technology Logo */
+.tech_logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* Item name span */
+.tech_item span {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--foreground);
+    transition: all 250ms ease-in-out;
+}
+
+.tech_item:hover span {
+    color: var(--brand-primary);
+}
+
+/* Responsive Adjustments */
+/* Bellow 900px */
+@media only screen and (max-width: 900px) {
+    .tech_item span {
+        font-size: 1.2rem;
+    }
+}
+
+/* Bellow 600px */
+@media only screen and (max-width: 600px) {
+
+    /* Tech Item Container */
+    .tech_item {
+        padding: 0.5rem 0.5rem;
+    }
+
+    /* Technology Logo */
+    .tech_logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .tech_item span {
+        font-size: 1rem;
+    }
+}
