@@ -119,7 +119,7 @@ export default function Home() {
           <div className={HOMECSS.hero_section_hr}></div>
 
           <div className={HOMECSS.intro}>
-            <p className={HOMECSS.intro_start}>Hey there! I'm a passionate</p>
+            <p className={HOMECSS.intro_start}>Hey there! I&apos;m a passionate</p>
             <h2 className={HOMECSS.role}>
               <span>FULLSTACK</span><br />
               <span>Web&nbsp;&nbsp;&nbsp;Developer</span>
@@ -156,9 +156,9 @@ export default function Home() {
         <div className={HOMECSS.about_content}>
           <p>
             with a <strong>strong</strong> background in both frontend and backend development,
-            i love turning ideas into functional, user-friendly solutions. whether it's optimizing
+            i love turning ideas into functional, user-friendly solutions. whether it&apos;s optimizing
             UI for seamless <strong>user experiences</strong> or building robust backend architectures,
-            i'm always eager to push the boundaries of web development.
+            i&apos;m always eager to push the boundaries of web development.
             <br /><br />
             constantly learning and improving, i aim to create impactful digital solutions that
             align with <strong>business goals</strong> and enhance user experiences.
