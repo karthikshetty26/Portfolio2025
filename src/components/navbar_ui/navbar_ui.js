@@ -15,7 +15,7 @@ const MENU_ITEMS = [
     { name: 'HOME', href: 'home' },
     { name: 'ABOUT', href: 'about' },
     { name: 'MY STACK', href: 'stack' },
-    { name: 'PROJECT', href: 'project' },
+    { name: 'PROJECTS', href: 'projects' },
     { name: 'BLOG', href: 'blog' },
     { name: 'CONTACT', href: 'contact' }
   ];

@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import HOMECSS from './Landing.module.css';
 import CircularText from '@/components/rotating-circular-text/rotating-circular-text';
 import TechItem from '@/components/tech-item/tech-item'
@@ -65,6 +66,46 @@ export default function Home() {
       technologies: ["Git", "GitHub", "Figma", "Postman", "WordPress"]
     }
   ];
+
+  // Array to store the project details - using useMemo to avoid recreation on re-renders
+  const projects = useMemo(() => [
+    {
+      id: "_1",
+      top_info: "Personal Project",
+      name: "WebToolSmith",
+      tech: ["React", "Next.js 15", "HTML5", "CSS3", "JavaScript"]
+    },
+    {
+      id: "_2",
+      top_info: "Feb 2023 - Sep 2023",
+      name: "PayTimePlus (Employee Management)",
+      tech: ["Angular 13", "TypeScript", "JavaScript", "jQuery", "HTML", "CSS", "Bootstrap", "Java", "Spring Boot", "MySQL"]
+    },
+    {
+      id: "_3",
+      top_info: "Sep 2023 - Nov 2023",
+      name: "UTouch Digital Library",
+      tech: ["Angular 16", "TypeScript", "JavaScript", "jQuery", "HTML", "CSS", "Bootstrap", "Strapi CMS"]
+    },
+    {
+      id: "_4",
+      top_info: "Apr 2024 - Jul 2024",
+      name: "AI DocSense",
+      tech: ["Angular 16", "TypeScript", "JavaScript", "jQuery", "HTML", "CSS", "Bootstrap", "Python", "Java", "Spring Boot", "MySQL"]
+    },
+    {
+      id: "_5",
+      top_info: "Dec 2023 - Present",
+      name: "RentAll (Equipment Rental)",
+      tech: ["Angular 17", "TypeScript", "JavaScript", "jQuery", "HTML", "CSS", "Bootstrap", "Java", "Spring Boot", "MySQL"]
+    },
+    {
+      id: "_6",
+      top_info: "Aug 2024 - Present",
+      name: "Automated AP-BPM",
+      tech: ["Angular 18", "TypeScript", "JavaScript", "HTML", "CSS", "Java", "Spring Boot", "Keycloak", "PostgreSQL", "Docker"]
+    }
+  ]);
 
   return (
     <main className={HOMECSS.container_main}>
@@ -150,7 +191,24 @@ export default function Home() {
         ))}
       </section>
 
-      
+      <section className={HOMECSS.projects_section} id="projects">
+        <h1>Projects</h1>
+        {projects.map((project) => (
+          <div key={project.id} className={HOMECSS.project_container}>
+            <p className={HOMECSS.no}>{project.id}</p>
+            <span>
+              <p>{project.top_info}</p>
+              <h2>{project.name}</h2>
+              <ul>
+                {project.tech.map((tech, index) => (
+                  <li key={index}>{tech}</li>
+                ))}
+              </ul>
+            </span>
+          </div>
+        ))}
+      </section>
+
     </main>
   );
 }
