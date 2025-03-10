@@ -191,6 +191,7 @@ export default function Home() {
         ))}
       </section>
 
+      {/* Projects Section */}
       <section className={HOMECSS.projects_section} id="projects">
         <h1>Projects</h1>
         {projects.map((project) => (
