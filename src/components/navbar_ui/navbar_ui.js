@@ -18,8 +18,7 @@ const MENU_ITEMS = [
     { name: 'PROJECTS', href: 'projects' },
     { name: 'BLOGS', href: 'blogs' },
     { name: 'CONTACT', href: 'contact' }
-  ];
-  
+];
 
 export default function NavbarUi() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
