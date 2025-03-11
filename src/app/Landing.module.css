@@ -446,7 +446,7 @@
 
 /* PROJECTS SECTION */
 
- .projects_section {
+.projects_section {
     width: 100%;
     height: fit-content;
     margin: 30px auto 0;
@@ -594,18 +594,130 @@
     .projects_section h1 {
         font-size: 2rem;
     }
-    
+
     .project_container span h2 {
         font-size: 1.2rem;
         line-height: 1.3rem;
     }
-    
+
     .project_container {
         padding: 8px 0;
         margin-bottom: 20px;
     }
+
     .project_container span ul li {
         font-size: 0.7rem;
         line-height: 1rem;
+    }
+}
+
+/* BLOGS SECTION */
+/* Main blogs section layout */
+.blogs_section {
+    width: 100%;
+    height: fit-content;
+    margin: 30px auto 0;
+    padding-top: 80px;
+}
+
+/* Section title styling */
+.blogs_section h1 {
+    font-size: 3rem;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    font-family: var(--font-family-secondary);
+    color: var(--foreground-05);
+    transition: color 350ms ease-in-out;
+}
+
+/* Container for all blog cards */
+.blogs_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Improved grid for responsiveness */
+    gap: 30px;
+}
+
+/* Individual blog container */
+.blog_container {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    border-bottom: 1px solid var(--foreground-05);
+    cursor: pointer;
+    transition: border-color 350ms ease-in-out;
+    position: relative;
+}
+
+/* Platform profile and blog details */
+.blog_container span p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: var(--foreground-05);
+    transition: color 350ms ease-in-out;
+}
+
+/* Icon styling for platform profile link */
+.icon__platform_profile_link,
+.icon__blog_link {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+    opacity: 0;
+    transition: opacity 450ms ease-in-out;
+}
+
+/* Show icon on hover */
+.platform_profile_link:hover .icon__platform_profile_link,
+.blog_link:hover .icon__blog_link {
+    opacity: 0.5;
+}
+
+/* Blog title styling */
+.blog_container span h2 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    line-height: 2.5rem;
+    color: var(--foreground);
+    transition: color 350ms ease-in-out;
+}
+
+/* Hover effect for blog title */
+.blog_container span h2:hover {
+    color: var(--brand-primary);
+}
+
+/* Responsive styles */
+/* Medium screens (below 900px) */
+@media only screen and (max-width: 900px) {
+    .blogs_container {
+        gap: 20px;
+    }
+
+    .blog_container {
+        padding: 15px;
+    }
+}
+
+/* Small screens (below 600px) */
+@media only screen and (max-width: 600px) {
+    .blogs_container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .blog_container {
+        padding: 10px;
+        margin-bottom: 0;
+    }
+
+    .blog_container span h2 {
+        font-size: 1.2rem;
+        line-height: 2rem;
     }
 }

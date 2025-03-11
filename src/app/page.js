@@ -1,10 +1,20 @@
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 import HOMECSS from './Landing.module.css';
 import CircularText from '@/components/rotating-circular-text/rotating-circular-text';
 import TechItem from '@/components/tech-item/tech-item'
 
 // Home Component - Main landing page for the portfolio website
 export default function Home() {
+  // HomeIcons Component supporting multiple paths for flexibility in SVG icons
+  const HomeIcons = memo(({ paths }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width={25} height={25} viewBox="0 0 24 24" fill="currentColor">
+      {paths.map((path, index) => (
+        <path key={index} d={path} /> // Render multiple paths if provided
+      ))}
+    </svg>
+  ));
+  HomeIcons.displayName = 'HomeIcons';
+
   // Map of special characters that need custom styling
   // Key represents the style class name, value is an array of characters to apply that style to
   const specialChars = {
@@ -47,8 +57,9 @@ export default function Home() {
     );
   };
 
-  // Tech stack data structure
-  const TECH_STACK = [
+  // using useMemo to avoid recreation on re-renders
+  // Array to store tech stack data structure
+  const TECH_STACK = useMemo(() => [
     {
       category: "Frontend",
       technologies: ["HTML", "CSS", "JavaScript", "Typescript", "Angular", "React", "Next.Js", "SASS", "Bootstrap"]
@@ -65,9 +76,9 @@ export default function Home() {
       category: "Tools & Other",
       technologies: ["Git", "GitHub", "Figma", "Postman", "WordPress"]
     }
-  ];
+  ])
 
-  // Array to store the project details - using useMemo to avoid recreation on re-renders
+  // Array to store the project details
   const projects = useMemo(() => [
     {
       id: "_1",
@@ -106,6 +117,38 @@ export default function Home() {
       tech: ["Angular 18", "TypeScript", "JavaScript", "HTML", "CSS", "Java", "Spring Boot", "Keycloak", "PostgreSQL", "Docker"]
     }
   ]);
+
+  // Array to store the blog details
+  const blogs = useMemo(() => [
+    {
+      id: "1",
+      name: "Complete Guide to JavaScript List Operations",
+      platform: "hashnode.dev",
+      platform_profile: "https://karthikshetty.hashnode.dev/",
+      link: "https://karthikshetty.hashnode.dev/complete-guide-to-javascript-list-operations"
+    },
+    {
+      id: "2",
+      name: "Synchronous and Asynchronous in JavaScript",
+      platform: "medium.com",
+      platform_profile: "https://medium.com/@Karthikshetty26",
+      link: "https://medium.com/@Karthikshetty26/synchronous-and-asynchronous-in-javascript-952e16ce7d4f"
+    },
+    {
+      id: "3",
+      name: "Comparing Arrays in Java and JavaScrip",
+      platform: "medium.com",
+      platform_profile: "https://medium.com/@Karthikshetty26",
+      link: "https://medium.com/@Karthikshetty26/comparing-arrays-in-java-and-javascript-understanding-the-key-differences-868a48a64b9f"
+    },
+    {
+      id: "4",
+      name: "Getting Started with Docker",
+      platform: "medium.com",
+      platform_profile: "https://medium.com/@Karthikshetty26",
+      link: "https://medium.com/@Karthikshetty26/getting-started-with-docker-windows-10-11-5ac2e928fefd"
+    }
+  ])
 
   return (
     <main className={HOMECSS.container_main}>
@@ -146,7 +189,6 @@ export default function Home() {
 
       {/* About section with professional summary */}
       <section className={HOMECSS.about_section} id='about'>
-
         {/* Empty box to maintain space when the user selects About in the navigation sidebar. */}
         <div className={HOMECSS.about_blank}></div>
         <h2>
@@ -208,6 +250,36 @@ export default function Home() {
             </span>
           </div>
         ))}
+      </section>
+
+      {/* Blogs Section */}
+      <section className={HOMECSS.blogs_section} id="blogs">
+        <h1>Blogs</h1>
+        <div className={HOMECSS.blogs_container}>
+          {blogs.map((blog) => (
+            <div key={blog.id} className={HOMECSS.blog_container}>
+              <span>
+
+                {/* Link to the platform profile */}
+                <a className={HOMECSS.platform_profile_link} href={blog.platform_profile} target='_blank'>
+                  <p>{blog.platform}</p>
+                  <span className={HOMECSS.icon__platform_profile_link}>
+                    <HomeIcons paths={["M13.0607 8.11097L14.4749 9.52518C17.2086 12.2589 17.2086 16.691 14.4749 19.4247L14.1214 19.7782C11.3877 22.5119 6.95555 22.5119 4.22188 19.7782C1.48821 17.0446 1.48821 12.6124 4.22188 9.87874L5.6361 11.293C3.68348 13.2456 3.68348 16.4114 5.6361 18.364C7.58872 20.3166 10.7545 20.3166 12.7072 18.364L13.0607 18.0105C15.0133 16.0578 15.0133 12.892 13.0607 10.9394L11.6465 9.52518L13.0607 8.11097ZM19.7782 14.1214L18.364 12.7072C20.3166 10.7545 20.3166 7.58872 18.364 5.6361C16.4114 3.68348 13.2456 3.68348 11.293 5.6361L10.9394 5.98965C8.98678 7.94227 8.98678 11.1081 10.9394 13.0607L12.3536 14.4749L10.9394 15.8891L9.52518 14.4749C6.79151 11.7413 6.79151 7.30911 9.52518 4.57544L9.87874 4.22188C12.6124 1.48821 17.0446 1.48821 19.7782 4.22188C22.5119 6.95555 22.5119 11.3877 19.7782 14.1214Z"]} />
+                  </span>
+                </a>
+
+                {/* Link to the blog post */}
+                <a className={HOMECSS.blog_link} href={blog.link} target='_blank'>
+                  <h2>{blog.name}</h2>
+                  <span className={HOMECSS.icon__blog_link}>
+                    <HomeIcons paths={["M18.3638 15.5355L16.9496 14.1213L18.3638 12.7071C20.3164 10.7545 20.3164 7.58866 18.3638 5.63604C16.4112 3.68341 13.2453 3.68341 11.2927 5.63604L9.87849 7.05025L8.46428 5.63604L9.87849 4.22182C12.6122 1.48815 17.0443 1.48815 19.778 4.22182C22.5117 6.95549 22.5117 11.3876 19.778 14.1213L18.3638 15.5355ZM15.5353 18.364L14.1211 19.7782C11.3875 22.5118 6.95531 22.5118 4.22164 19.7782C1.48797 17.0445 1.48797 12.6123 4.22164 9.87868L5.63585 8.46446L7.05007 9.87868L5.63585 11.2929C3.68323 13.2455 3.68323 16.4113 5.63585 18.364C7.58847 20.3166 10.7543 20.3166 12.7069 18.364L14.1211 16.9497L15.5353 18.364ZM14.8282 7.75736L16.2425 9.17157L9.17139 16.2426L7.75717 14.8284L14.8282 7.75736Z"]} />
+                  </span>
+                </a>
+              </span>
+
+            </div>
+          ))}
+        </div>
       </section>
 
     </main>
