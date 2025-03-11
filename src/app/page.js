@@ -2,6 +2,10 @@ import { useMemo, memo } from 'react';
 import HOMECSS from './Landing.module.css';
 import CircularText from '@/components/rotating-circular-text/rotating-circular-text';
 import TechItem from '@/components/tech-item/tech-item'
+import Image from 'next/image';
+import GmailLogo from '@/assets/img/svg/social/gmail-logo.svg'
+import LinkedinLogo from '@/assets/img/svg/social/linkedin-logo.svg'
+import GitHubLogo from '@/assets/img/svg/social/github-logo.svg'
 
 // Home Component - Main landing page for the portfolio website
 export default function Home() {
@@ -150,6 +154,13 @@ export default function Home() {
     }
   ])
 
+  // Contact links data for easier scalability and readability
+  const SOCIAL_LINKS = [
+    { href: 'mailto:karthikkanyana26@gmail.com', src: GmailLogo, alt: 'Gmail' },
+    { href: 'https://www.linkedin.com/in/karthikshetty26/', src: LinkedinLogo, alt: 'LinkedIn' },
+    { href: 'https://github.com/karthikshetty26', src: GitHubLogo, alt: 'GitHub' }
+  ];
+
   return (
     <main className={HOMECSS.container_main}>
 
@@ -282,6 +293,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contact Section */}
+      <section className={HOMECSS.contact_section} id="contact">
+        <h1>Contact</h1>
+        <div className={HOMECSS.contact_container}>
+          <p>Got something in mind or just want to connect? Feel free to reach out!</p>
+
+          {/* Social Links List */}
+          <ul className={HOMECSS.social_ul}>
+            {SOCIAL_LINKS.map(({ href, src, alt }) => (
+              <li key={alt}>
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src={src}
+                    alt={alt}
+                    width={24}
+                    height={24}
+                    className={HOMECSS.tech_logo}
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </main>
   );
 }
