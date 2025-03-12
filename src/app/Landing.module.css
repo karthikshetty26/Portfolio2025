@@ -763,7 +763,6 @@
 }
 
 .social_ul li:hover {
-    background-color: var(--foreground-05);
     box-shadow: 0 0 20px var(--brand-primary-op-50);
 }
 
