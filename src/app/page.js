@@ -19,48 +19,6 @@ export default function Home() {
   ));
   HomeIcons.displayName = 'HomeIcons';
 
-  // Map of special characters that need custom styling
-  // Key represents the style class name, value is an array of characters to apply that style to
-  const specialChars = {
-    secondary: ['w', 't', 'b', 'o'],
-  };
-
-  /**
-   * SplitText Component - Splits text into individual letter spans
-   * Assigns special classes to specific characters defined in specialChars
-   * @param {Object} props - Component props
-   * @param {string} props.text - Text to be split into individual characters
-   * @returns {JSX.Element} Collection of styled spans
-   */
-
-  const SplitText = ({ text }) => {
-    // Early return for empty text to avoid unnecessary processing
-    if (!text) return null;
-
-    return (
-      <>
-        {text.split('').map((char, index) => {
-          // Find appropriate class for this character
-          let charClass = '';
-
-          // Check if current character matches any in our special characters map
-          for (const [key, chars] of Object.entries(specialChars)) {
-            if (chars.includes(char.toLowerCase())) {
-              charClass = `span_${key}`;
-              break; // Exit loop once a match is found
-            }
-          }
-
-          return (
-            <span key={`char-${index}-${char}`} className={HOMECSS[charClass]}>
-              {char}
-            </span>
-          );
-        })}
-      </>
-    );
-  };
-
   // using useMemo to avoid recreation on re-renders
   // Array to store tech stack data structure
   const TECH_STACK = useMemo(() => [
