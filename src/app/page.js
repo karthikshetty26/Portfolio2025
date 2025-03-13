@@ -249,6 +249,7 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <p className={HOMECSS.list_all_blogs}>Check out all blogs on <a href='https://medium.com/@Karthikshetty26'>medium.com</a> and <a href='https://medium.com/@Karthikshetty26'>hashnode.dev</a></p> 
       </section>
 
       {/* Contact Section */}
