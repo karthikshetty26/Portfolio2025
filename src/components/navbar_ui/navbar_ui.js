@@ -1,6 +1,7 @@
 "use client"
 import navCSS from './navbar.module.css';
 import { useEffect, useState, memo } from 'react';
+import { usePathname } from "next/navigation";
 
 // Memoized ArrowTopRight component to reuse icon
 const ArrowTopRight = memo(() => (
@@ -21,8 +22,22 @@ const MENU_ITEMS = [
 ];
 
 export default function NavbarUi() {
+    const pathname = usePathname();
+    const isRootPath = pathname === '/';
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [theme, setTheme] = useState('light');
+    const [showMenu, setShowMenu] = useState(isRootPath);
+
+    // Effect to update showMenu when pathname changes
+    useEffect(() => {
+        setShowMenu(pathname === '/');
+        
+        // If navigating away from root, close the menu if it's open
+        if (pathname !== '/' && isMenuOpen) {
+            setIsMenuOpen(false);
+        }
+    }, [pathname, isMenuOpen]);
 
     // Toggle theme function
     const toggleTheme = () => {
@@ -70,26 +85,28 @@ export default function NavbarUi() {
     return (
         <>
             {/* Theme toggle */}
-            <div className={navCSS.theme_div} onClick={toggleTheme}>
+            <div className={`${navCSS.theme_div} ${!showMenu ? navCSS.only_theme : ''}`} onClick={toggleTheme}>
                 {theme === 'light' ? 'Dark' : 'Light'}&nbsp;&nbsp;
                 <button className={navCSS.dark_light_btn}>
                     <span className={theme === 'light' ? navCSS.light : navCSS.dark}></span>
                 </button>
             </div>
 
-            {/* Menu button */}
-            <div className={navCSS.menu_div} onClick={toggleMenu}>
-                Menu&nbsp;
-                <button
-                    className={isMenuOpen ? navCSS.open : ''}
-                    id={navCSS.navIcon}
-                >
-                    <span className={navCSS.span_icon}></span>
-                    <span className={navCSS.span_icon}></span>
-                    <span className={navCSS.span_icon}></span>
-                    <span className={navCSS.span_icon}></span>
-                </button>
-            </div>
+            {/* Menu button - only show on root path */}
+            {showMenu && (
+                <div className={navCSS.menu_div} onClick={toggleMenu}>
+                    Menu&nbsp;
+                    <button
+                        className={isMenuOpen ? navCSS.open : ''}
+                        id={navCSS.navIcon}
+                    >
+                        <span className={navCSS.span_icon}></span>
+                        <span className={navCSS.span_icon}></span>
+                        <span className={navCSS.span_icon}></span>
+                        <span className={navCSS.span_icon}></span>
+                    </button>
+                </div>
+            )}
 
             {/* Side nav */}
             <nav className={`${navCSS.side_nav} ${isMenuOpen ? navCSS.show : ''}`}>

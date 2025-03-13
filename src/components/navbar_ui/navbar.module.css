@@ -16,6 +16,10 @@
     font-size: 21px;
 }
 
+.theme_div.only_theme {
+    right: 30px;
+}
+
 /* Theme toggle button */
 .dark_light_btn {
     width: 18px;
@@ -281,6 +285,6 @@
 
     /* Navigation list items */
     .hold_nav .show_menu_values li {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 }
