@@ -6,6 +6,7 @@ import Image from 'next/image';
 import GmailLogo from '@/assets/img/svg/social/gmail-logo.svg'
 import LinkedinLogo from '@/assets/img/svg/social/linkedin-logo.svg'
 import GitHubLogo from '@/assets/img/svg/social/github-logo.svg'
+import Link from 'next/link';
 
 // Home Component - Main landing page for the portfolio website
 export default function Home() {
@@ -46,36 +47,42 @@ export default function Home() {
       id: "_1",
       top_info: "Personal Project",
       name: "WebToolSmith",
+      page_link: "/projects/webtoolsmith",
       tech: ["React", "Next.js 15", "HTML5", "CSS3", "JavaScript"]
     },
     {
       id: "_2",
       top_info: "Feb 2023 - Sep 2023",
-      name: "PayTimePlus (Employee Management)",
-      tech: ["Angular 13", "TypeScript", "JavaScript", "jQuery", "HTML", "CSS", "Bootstrap", "Java", "Spring Boot", "MySQL"]
+      name: "PayTimePlus (HMS)",
+      page_link: "/projects/paytimeplus",
+      tech: ["Angular 13", "TypeScript", "JavaScript", "JQuery", "HTML", "CSS", "Bootstrap", "Java", "Spring Boot", "MySQL"]
     },
     {
       id: "_3",
       top_info: "Sep 2023 - Nov 2023",
-      name: "UTouch Digital Library",
-      tech: ["Angular 16", "TypeScript", "JavaScript", "jQuery", "HTML", "CSS", "Bootstrap", "Strapi CMS"]
+      name: "Union Bank: Digital Public Library (UTouch)",
+      page_link: "/projects/union-bank-digital-library",
+      tech: ["Angular 16", "TypeScript", "JavaScript", "JQuery", "HTML", "CSS", "Bootstrap", "Strapi CMS"]
     },
     {
       id: "_4",
       top_info: "Apr 2024 - Jul 2024",
       name: "AI DocSense",
-      tech: ["Angular 16", "TypeScript", "JavaScript", "jQuery", "HTML", "CSS", "Bootstrap", "Python", "Java", "Spring Boot", "MySQL"]
+      page_link: "/projects/aidocsense",
+      tech: ["Angular 16", "TypeScript", "JavaScript", "JQuery", "HTML", "CSS", "Bootstrap", "Python", "Java", "Spring Boot", "MySQL"]
     },
     {
       id: "_5",
       top_info: "Dec 2023 - Present",
       name: "RentAll (Equipment Rental)",
-      tech: ["Angular 17", "TypeScript", "JavaScript", "jQuery", "HTML", "CSS", "Bootstrap", "Java", "Spring Boot", "MySQL"]
+      page_link: "/projects/rentall",
+      tech: ["Angular 17", "TypeScript", "JavaScript", "JQuery", "HTML", "CSS", "Bootstrap", "Java", "Spring Boot", "MySQL"]
     },
     {
       id: "_6",
       top_info: "Aug 2024 - Present",
       name: "Automated AP-BPM",
+      page_link: "/projects/apstudio",
       tech: ["Angular 18", "TypeScript", "JavaScript", "HTML", "CSS", "Java", "Spring Boot", "Keycloak", "PostgreSQL", "Docker"]
     }
   ]);
@@ -210,7 +217,9 @@ export default function Home() {
             <p className={HOMECSS.no}>{project.id}</p>
             <span>
               <p>{project.top_info}</p>
-              <h2>{project.name}</h2>
+              <Link href={project.page_link}>
+                <h2>{project.name}</h2>
+              </Link>
               <ul>
                 {project.tech.map((tech, index) => (
                   <li key={index}>{tech}</li>
@@ -249,7 +258,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <p className={HOMECSS.list_all_blogs}>Check out all blogs on <a href='https://medium.com/@Karthikshetty26'>medium.com</a> and <a href='https://medium.com/@Karthikshetty26'>hashnode.dev</a></p> 
+        <p className={HOMECSS.list_all_blogs}>Check out all blogs on <a href='https://medium.com/@Karthikshetty26'>medium.com</a> and <a href='https://medium.com/@Karthikshetty26'>hashnode.dev</a></p>
       </section>
 
       {/* Contact Section */}
