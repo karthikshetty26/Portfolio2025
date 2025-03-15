@@ -1,4 +1,5 @@
 import "./globals.css";
+import "./projects/projects.css"
 import NavbarUi from '@/components/navbar_ui/navbar_ui'
 import Script from "next/script";
 
