@@ -295,7 +295,7 @@ export default function Home() {
         <div className={HOMECSS.contact_container}>
           <h1>Turning Ideas into Impact</h1>
 
-          <p>Have an exciting idea brewing? Or maybe you're looking to brainstorm, collaborate, or just talk tech? I'm always up for meaningful conversations—let's make it happen!</p>
+          <p>Have an exciting idea brewing? Or maybe you&apos;re looking to brainstorm, collaborate, or just talk tech? I&apos;m always up for meaningful conversations—let&apos;s make it happen!</p>
 
           {/* Social Links List */}
           <ul className={HOMECSS.social_ul}>
