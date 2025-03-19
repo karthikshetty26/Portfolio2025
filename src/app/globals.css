@@ -1,27 +1,21 @@
 :root {
-  --background: #e7e7e7;
-  --foreground: #313131;
-  --foreground-05: #171717a8;
-
-  /* Brand Colors */
-  --brand-primary: #a4e84c;
-  --brand-primary-op-50: #a4e84c77;
-  --brand-primary-over-text: #313131;
-    
-  /* Text Colors */
-  --text-color-primary: #2e2e2e;
-  --text-color-secondary: #8E8E8E;
+  --background: #ffffff;
+  --background-dark: #000000;
+  --background-dark-text: #ffffff;
+  --foreground: #363636;
+  --foreground-05: #3636368f;
+  --overlay: #f9f9f9;
 
   /* Font */
   --font-family-primary: "Poppins", sans-serif;
-  --font-family-secondary: "Jersey 10", sans-serif;;
+  --font-family-secondary: "Roboto", sans-serif;
 }
 
 [data-theme="dark"] {
-  --background: #313131;
-  --foreground: #e7e7e7;
-  --foreground-05: #ededed7a;
-  --text-color-primary: #eeeeee;
+  --background: #000000;
+  --foreground: #C9C9C9;
+  --foreground-05: #C9C9C98F;
+  --overlay: #0f0f0f;
 }
 
 html,
@@ -29,7 +23,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: var(--font-family-primary);
-  color: var(--text-color-primary);
+  color: var(--foreground);
   background-color: var(--background);
   transition: all 0.5s ease;
 }

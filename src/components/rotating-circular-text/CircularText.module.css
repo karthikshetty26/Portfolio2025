@@ -41,7 +41,7 @@
     height: 100%;
     left: 0;
     top: 0;
-    color: var(--brand-primary-over-text);
+    color: var(--foreground-05);
     /* Font size is set via inline styles */
 }
 

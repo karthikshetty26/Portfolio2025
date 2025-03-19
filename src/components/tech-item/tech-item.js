@@ -15,14 +15,14 @@ export default function TechItem({ name, logoPath, className = '' }) {
 
   return (
     <li className={`${STYLECSS.tech_item} ${className}`}>
-      <Image 
-        src={logo} 
-        alt={`${name} logo`}
-        width={24} 
-        height={24}
-        className={STYLECSS.tech_logo} 
-      />
       <span>{name}</span>
+      <Image
+        src={logo}
+        alt={`${name} logo`}
+        width={15}
+        height={15}
+        className={STYLECSS.tech_logo}
+      />
     </li>
   );
 }

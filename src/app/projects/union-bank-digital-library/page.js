@@ -10,7 +10,7 @@ import img4 from '@/assets/img/projects/union-bank-digital-library/utouch-4.png'
 // Project data
 const projectData = {
     title: "Union Bank: Digital Public Library (UTouch)",
-    type: "Official",
+    type: "Team Projects",
     year: "Sep 2023 - Nov 2023",
     tech: "Angular 16, TypeScript, JavaScript, JQuery, HTML, CSS, Bootstrap, Strapi CMS",
     description: "A noble initiative by Union Bank designed to provide easy access to digital resources while engaging users from diverse demographic and socio-economic backgrounds. The goal is to establish over 150+ public libraries, with the application running in a kiosk environment for seamless accessibility.",

@@ -17,7 +17,7 @@
 .project_back_div button {
     background-color: transparent;
     border: none;
-    font-size: 1rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -69,10 +69,10 @@
 .project_content span h1 {
     width: calc(100% - 80px);
     text-transform: uppercase;
-    font-size: 4rem;
-    line-height: 2.5rem;
+    font-size: 2.5rem;
+    line-height: 3rem;
     letter-spacing: 2px;
-    color: var(--foreground);
+    color: var(--foreground-05);
     font-family: var(--font-family-secondary);
     cursor: default;
     transition: color 350ms ease-in-out;
@@ -100,7 +100,7 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: 400;
     color: var(--foreground);
     transition: color 350ms ease-in-out;
@@ -122,8 +122,9 @@
 
 /* Paragraph text styling */
 .project_dec p {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: 400;
+    line-height: 1.8rem;
     color: var(--foreground);
     cursor: default;
     transition: color 350ms ease-in-out;
@@ -172,11 +173,11 @@
     }
 
     .project_dec ul {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .project_dec p {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .project_img_container {

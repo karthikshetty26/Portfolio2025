@@ -12,8 +12,9 @@
     align-items: center;
     cursor: pointer;
     font-family: var(--font-family-secondary);
+    color: var(--foreground-05);
     letter-spacing: 2px;
-    font-size: 21px;
+    font-size: 15px;
 }
 
 .theme_div.only_theme {
@@ -72,8 +73,9 @@
     align-items: center;
     cursor: pointer;
     font-family: var(--font-family-secondary);
+    color: var(--foreground-05);
     letter-spacing: 2px;
-    font-size: 21px;
+    font-size: 15px;
 }
 
 /* Hamburger icon button */
@@ -113,7 +115,7 @@
 
 /* Hover color effect for hamburger bars */
 #navIcon:hover .span_icon {
-    background: var(--brand-primary);
+    background: var(--foreground-05);
 }
 
 /* Positioning of individual hamburger bars */
@@ -168,7 +170,7 @@
 .side_nav.show {
     transform: scaleX(1);
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.342);
+    background-color: rgba(0, 0, 0, 0.548);
     /* Enable interaction when visible */
     pointer-events: auto;
 }
@@ -262,7 +264,7 @@
 
     /* Adjust theme toggle position */
     .theme_div {
-        right: 115px;
+        right: 130px;
         top: 40px;
         font-size: 16px;
     }

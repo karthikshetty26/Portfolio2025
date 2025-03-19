@@ -6,7 +6,7 @@ import logo from '@/assets/img/projects/paytimeplus/paytimeplusLogo.png';
 // Project data
 const projectData = {
     title: "PayTimePlus",
-    type: "Official",
+    type: "Team Projects",
     year: "2023 - 2023",
     tech: "Angular 13, TypeScript, JavaScript, JQuery, HTML, CSS, Bootstrap, Java, SpringBoot, MySQL",
     description: "PayTimePlus is an HR Management System (HMS) that allows HR teams and employees to manage attendance, leave, payroll, and employee documents efficiently. The application is built using Angular, Bootstrap for the front-end, and Java (Spring Boot) with MySQL for the backend.",

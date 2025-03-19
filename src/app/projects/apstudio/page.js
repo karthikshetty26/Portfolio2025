@@ -6,7 +6,7 @@ import logo from '@/assets/img/projects/apstudio/apstudioLogo.png';
 // Project data
 const projectData = {
     title: "Automated AP-BPM",
-    type: "Official",
+    type: "Team Projects",
     year: "Aug 2024 - Present",
     tech: "Angular 18, TypeScript, JavaScript, HTML, CSS, Java, SpringBoot, PostgreSQL",
     description: "A powerful AI-powered application designed to simplify invoice processing workflows for large organizations. By automating key processes helps businesses significantly speed up their invoicing tasks and improve efficiency.",

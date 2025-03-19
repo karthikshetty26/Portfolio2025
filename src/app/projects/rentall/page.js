@@ -10,7 +10,9 @@ import img4 from '@/assets/img/projects/rentall/rentall-4.png';
 // Project data
 const projectData = {
     title: "RentALL",
-    type: "Official",
+    type: "Team Projects",
+    Platform: "Web/Mobile",
+    Category: "",
     year: "Dec 2023 - Present",
     tech: "Angular 17, TypeScript, JavaScript, jQuery, HTML, CSS, Bootstrap, Java, SpringBoot",
     description: "RentALL revolutionizes equipment rentals with a customer-centric approach, ensuring a seamless experience. From browsing listings to managing bookings, receipts, and personalized communication, the platform simplifies the rental process for users of all backgrounds.",

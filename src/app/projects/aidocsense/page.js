@@ -10,7 +10,7 @@ import img4 from '@/assets/img/projects/aidocsense/aidocsense-4.png';
 // Project data
 const projectData = {
     title: "AI DocSense",
-    type: "Official",
+    type: "Team Projects",
     year: "Apr 2024 - Jul 2024",
     tech: "Angular 16, TypeScript, JavaScript, JQuery, HTML, CSS, Bootstrap, Java, SpringBoot, Python",
     description: "An AI-powered web application designed for efficient document management. It categorizes documents based on their content, making organization seamless. The application is built using Angular for the UI, SpringBoot for the backend, MySQL as the database, and a Python-based ML model to analyze documents, segregate them, and assign relevant tags for better organization.",
