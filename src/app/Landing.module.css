@@ -11,7 +11,7 @@
 .section_heading {
     position: relative;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     padding: 20px;
     margin: auto;
 }
@@ -73,7 +73,7 @@
 .hero_text {
     position: relative;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     height: 100%;
     padding: 20px;
     margin: auto;
@@ -87,6 +87,7 @@
 .hero_text .intro {
     width: 90%;
     max-width: 800px;
+    margin-top: 50px;
 }
 
 /* Intro starter text styling */
@@ -148,12 +149,11 @@
 
 .about_content_hold {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     height: fit-content;
     min-height: 95dvh;
     padding: 20px;
     margin: auto;
-    margin-bottom: 100px;
 }
 
 /* About section headline styling */
@@ -193,7 +193,7 @@
     width: 30%;
     padding: 0;
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     line-height: 1.4;
     text-align: justify;
     color: var(--foreground-05);
@@ -255,6 +255,10 @@
         margin-bottom: 40px;
     }
 
+    .about_content_hold {
+        min-height: fit-content;
+    }
+
     /* About section headline styling */
     .about_content_hold h2 {
         font-size: 1.9rem;
@@ -289,42 +293,61 @@
 .stack_section {
     width: 100%;
     height: fit-content;
-    padding-top: 80px
+    padding-top: 50px;
 }
 
 .stack_hold {
-    max-width: 1400px;
+    max-width: 1200px;
     padding: 20px;
+    margin: auto;
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.stack_hold p {
+    width: 30%;
+    padding: 0;
+    font-weight: 400;
+    font-size: 0.7rem;
+    line-height: 1.4;
+    text-align: justify;
+    color: var(--foreground-05);
+    transition: all 350ms ease-in-out;
 }
 
 .stack_containers {
-    width: 100%;
+    width: 70%;
+    padding: 0px 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .stack_container {
-    width: 33%;
-    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 60px;
 }
 
 .stack_category {
-    width: 100%;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    opacity: 0.8;
-    color: var(--foreground);
-    font-family: var(--font-family-secondary);
-    transition: all 250ms ease-in-out;
+    width: 30%;
+    padding: 0;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: justify;
+    color: var(--foreground-05);
+    transition: all 350ms ease-in-out;
+}
+
+.stack_category span {
+    font-size: 0.8rem;
+    opacity: 0.5;
 }
 
 .stack_list {
-    width: 100%;
+    width: 70%;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -338,37 +361,50 @@
         width: 100%;
     }
 
+    .stack_hold p {
+        width: 20%;
+    }
+
     .stack_containers {
-        width: 100%;
-        padding: 0;
-    }
-
-    .stack_container {
-        width: 50%;
-    }
-
-    .stack_category {
-        width: 100%;
-        margin-bottom: 30px;
-    }
-
-    .stack_list {
-        width: 100%;
+        width: 80%;
     }
 }
 
 /* Small screens (below 600px) */
 @media only screen and (max-width: 600px) {
+    .stack_section {
+        padding-top: 10px;
+    }
+
     .stack_container {
         width: 100%;
         margin-bottom: 40px;
     }
 
+    .stack_hold {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .stack_hold p {
+        width: 100%;
+        margin-bottom: 20px;
+        opacity: 0.6;
+    }
+
+    .stack_containers {
+        width: 100%;
+        padding: 0;
+    }
+
     .stack_category {
+        width: 100%;
         margin-bottom: 15px;
+        font-weight: 500;
     }
 
     .stack_list {
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         gap: 15;
@@ -401,7 +437,7 @@
     position: relative;
     width: 90%;
     min-height: 200px;
-    max-width: 1400px;
+    max-width: 1200px;
     padding-left: 10px;
     margin: auto;
     display: flex;
@@ -566,7 +602,7 @@
 /* Container for all blog cards */
 .blogs_container {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     padding: 20px;
     margin: auto;
     display: grid;
@@ -631,7 +667,7 @@
 /* List all blogs */
 .list_all_blogs {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     padding: 20px;
     margin: auto;
     font-size: 1rem;

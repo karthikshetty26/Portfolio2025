@@ -23,15 +23,15 @@ export default function Home() {
   // Array to store tech stack data structure
   const TECH_STACK = useMemo(() => [
     {
-      category: "01 Frontend",
+      category: (<><span>01.03.01 / </span>Frontend</>),
       technologies: ["HTML", "CSS", "JavaScript", "Typescript", "Angular", "React", "Next.Js", "SASS", "Bootstrap"]
     },
     {
-      category: "02 Backends",
+      category: (<><span>01.03.02 / </span>Backends</>),
       technologies: ["Java", "Spring Boot", "Node.js", "Express.js", "RESTful APIs", "MySQL", "PostgreSQL"]
     },
     {
-      category: "03 Tools & Other",
+      category: (<><span>01.03.03 / </span>Tools & Other</>),
       technologies: ["Git", "GitHub", "Figma", "Postman", "WordPress"]
     }
   ])
@@ -172,15 +172,15 @@ export default function Home() {
             I specialize in building <strong>scalable</strong>, <strong>high-performance</strong> web applications with a strong focus on usability, <strong>efficiency</strong>, and seamless user experiences.
           </h2>
           <div className={HOMECSS.about_content}>
-            <p>/ 01.01 /</p>
+            <p>01.01 &nbsp;&nbsp;&nbsp;&nbsp;About me</p>
             <p>
               With a <strong>strong</strong> background in both frontend and backend development,
-              I love turning ideas into functional, <strong>user-friendly</strong> solutions. Whether it&apos;s optimizing UI for seamless <strong>user experiences</strong> or building robust backend architectures, i&apos;m always eager to push the boundaries of web development.
+              I love turning ideas into functional, <strong>user-friendly</strong> solutions. Whether it&apos;s optimizing UI for seamless <strong>user experiences</strong> or building <strong>robust backend</strong> architectures, i&apos;m always eager to push the boundaries of web development.
             </p>
           </div>
 
           <div className={HOMECSS.about_content}>
-            <p>/ 01.02 /</p>
+            <p>01.02 &nbsp;&nbsp;&nbsp;&nbsp;I'm</p>
             <p>Constantly learning and improving, I aim to create <strong>impactful</strong> digital solutions that align with <strong>business goals</strong> and enhance user experiences.
             </p>
           </div>
@@ -189,11 +189,9 @@ export default function Home() {
 
       {/* Stack section */}
       <section className={HOMECSS.stack_section} id='stack'>
-        <div className={HOMECSS.section_heading}>
-          <h1>1.0 Stack</h1>
-        </div>
-
         <div className={HOMECSS.stack_hold}>
+          <p>01.03  &nbsp;&nbsp;&nbsp;&nbsp;Stack</p>
+
           <div className={HOMECSS.stack_containers}>
             {/* Map through each stack category */}
             {TECH_STACK.map((stack, index) => (
@@ -222,9 +220,9 @@ export default function Home() {
         {/* Map through projects array to render each project */}
         {projects.map((project) => (
           <Link key={project.id} href={project.page_link} className={HOMECSS.project_container}>
-            
+
             <div className={HOMECSS.project_container_hr}></div>
-            
+
             <div className={HOMECSS.project_container_content}>
               <p className={HOMECSS.no}><i>more on project</i></p>
               <span>

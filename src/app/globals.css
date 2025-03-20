@@ -48,7 +48,7 @@ a {
 .page_container {
   position: relative;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   padding: 0 15px;
   margin: auto;
 }
