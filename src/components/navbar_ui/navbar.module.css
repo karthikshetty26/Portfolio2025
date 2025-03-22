@@ -23,44 +23,38 @@
 
 /* Theme toggle button */
 .dark_light_btn {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    rotate: -45deg;
-    background-color: var(--foreground);
+    width: 20px;
+    height: 20px;
     border: none;
+    background-color: transparent;
+    transition: all 0.7s ease;
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.308);
-    transition: all 0.9s ease;
 }
 
 /* Theme toggle button hover effect */
 .theme_div:hover .dark_light_btn {
-    rotate: 45deg;
+    rotate: -90deg;
 }
 
-.dark_light_btn:hover {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.479);
-}
-
-/* Common styles for indicator spans */
-.dark_light_btn span,
-.dark_light_btn:hover span {
-    transform: scale(0);
-    transition: all 0.5s ease;
-    background-color: var(--background);
-}
-
-/* Light mode indicator */
-.dark_light_btn span.light {
-    transform: scale(1);
-    display: block;
+.dark_light_btn span {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    margin-top: -20px;
-    background-color: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
 }
+
+.dark_light_btn span svg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--foreground);
+}
+
+
 
 /* Menu Button Styles */
 /* Controls the appearance of the menu toggle button and hamburger icon */
