@@ -1,8 +1,7 @@
-import { useMemo, memo } from 'react';
+import { memo } from 'react';
 import HOMECSS from './Landing.module.css';
 import TechItem from '@/components/tech-item/tech-item'
 import Image from 'next/image';
-import GmailLogo from '@/assets/img/svg/social/gmail-logo.svg'
 import LinkedinLogo from '@/assets/img/svg/social/linkedin-logo.svg'
 import GitHubLogo from '@/assets/img/svg/social/github-logo.svg'
 import Link from 'next/link';
@@ -21,7 +20,7 @@ export default function Home() {
 
   // using useMemo to avoid recreation on re-renders
   // Array to store tech stack data structure
-  const TECH_STACK = useMemo(() => [
+  const TECH_STACK = [
     {
       category: (<><span>01.03.01 / </span>Frontend</>),
       technologies: ["HTML", "CSS", "JavaScript", "Typescript", "Angular", "React", "Next.Js", "SASS", "Bootstrap"]
@@ -34,10 +33,10 @@ export default function Home() {
       category: (<><span>01.03.03 / </span>Tools & Other</>),
       technologies: ["Git", "GitHub", "Figma", "Postman", "WordPress"]
     }
-  ])
+  ]
 
   // Array to store the project details
-  const projects = useMemo(() => [
+  const projects = [
     {
       id: "01",
       top_info: "Creative Projects",
@@ -80,10 +79,10 @@ export default function Home() {
       page_link: "/projects/apstudio",
       tech: ["Angular 18", "TypeScript", "JavaScript", "HTML", "CSS", "Java", "Spring Boot", "Keycloak", "PostgreSQL", "Docker"]
     }
-  ]);
+  ]
 
   // Array to store the blog details
-  const blogs = useMemo(() => [
+  const blogs = [
     {
       id: "1",
       name: "Complete Guide to JavaScript List Operations",
@@ -112,7 +111,7 @@ export default function Home() {
       platform_profile: "https://medium.com/@Karthikshetty26",
       link: "https://medium.com/@Karthikshetty26/getting-started-with-docker-windows-10-11-5ac2e928fefd"
     }
-  ])
+  ]
 
   // Contact links data for easier scalability and readability
   const SOCIAL_LINKS = [
@@ -180,7 +179,7 @@ export default function Home() {
           </div>
 
           <div className={HOMECSS.about_content}>
-            <p>01.02 &nbsp;&nbsp;&nbsp;&nbsp;I'm</p>
+            <p>01.02 &nbsp;&nbsp;&nbsp;&nbsp;I&apos;m</p>
             <p>Constantly learning and improving, I aim to create <strong>impactful</strong> digital solutions that align with <strong>business goals</strong> and enhance user experiences.
             </p>
           </div>
