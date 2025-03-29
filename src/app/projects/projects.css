@@ -20,6 +20,7 @@
 
 /* Back button styling with transitions for hover effects */
 .project_back_div button {
+    margin-left: 20px;
     background-color: transparent;
     border: none;
     font-size: 0.9rem;
@@ -36,7 +37,7 @@
 
 /* Icon wrapper in back button */
 .project_back_div button span {
-    width: 25px;
+    width: 20px;
     height: 25px;
     display: flex;
     align-items: center;
@@ -152,6 +153,18 @@
     letter-spacing: 1px;
 }
 
+/* CAT */
+.project_dec.btns.cat ul {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project_dec.btns.cat ul li {
+    padding: 0 10px;
+}
+
 /* List items styling - buttons */
 .project_dec.btns ul li a {
     display: flex;
@@ -216,6 +229,10 @@
 /* Medium screens (tablets, 601px - 1024px) */
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
 
+    .project_back_div button {
+        margin-left: 10px;
+    }
+
     .tiny_info_container .project_dec {
         width: 50%;
         margin-bottom: 15px;
@@ -232,6 +249,10 @@
 
 /* Small screens (mobile phones, 600px and below) */
 @media only screen and (max-width: 600px) {
+
+    .project_back_div button {
+        margin-left: 13px;
+    }
 
     .project_content {
         margin: 70px auto 20px;
@@ -272,5 +293,14 @@
 
     .project_img {
         width: 100%;
+    }
+
+    /* CAT */
+    .project_dec.btns.cat ul {
+        justify-content: flex-start;
+    }
+
+    .project_dec.btns.cat ul li {
+        padding: 0 5px;
     }
 }

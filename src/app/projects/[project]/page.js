@@ -1,7 +1,54 @@
 import { notFound } from "next/navigation"; // Utility function to handle 404 errors
-import BackButton from "../backButtonProjects"; // Custom back button component
 import Image from "next/image"; // Next.js Image component for optimized image loading
+import BackButton from "../backButtonProjects"; // Custom back button component
 import { getPostDetails } from '../projectInfo'; // Function to fetch project details based on URL params
+
+export async function generateMetadata({ params }) {
+    // Await params before accessing properties
+    const resolvedParams = await params;
+
+    // Now use the resolved params
+    const project = await getPostDetails(resolvedParams.project) || null;
+
+    // Handle case where project data is missing
+    if (!project) {
+        return {
+            title: "Project Not Found",
+            description: "The requested project could not be found."
+        };
+    }
+
+    // Create project-specific metadata
+    return {
+        title: `${project.title} | Karthik Shetty Portfolio`,
+        description: project.summary,
+        keywords: `${project.tech.join(", ")}, ${project.title}, ${project.platform}, Karthik Shetty, Portfolio, ${project.category} Project`,
+
+        openGraph: {
+            title: `${project.title} - Project by Karthik Shetty`,
+            description: project.summary,
+            type: "article",
+            url: `/projects/${resolvedParams.project}`,
+            images: [
+                {
+                    url: project.projectSharingImg || "/images/sharing/portfolio-og-image.jpg",
+                    width: 1200,
+                    height: 630,
+                    alt: `${project.title} - Project by Karthik Shetty`
+                }
+            ]
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${project.title} - Karthik Shetty`,
+            description: project.summary,
+            images: [project.projectSharingImg || "/images/sharing/portfolio-og-image.jpg"]
+        },
+        alternates: {
+            canonical: `/projects/${resolvedParams.project}`
+        }
+    };
+}
 
 // Dynamic route page for displaying project details
 export default async function Page({ params }) {
@@ -99,7 +146,7 @@ export default async function Page({ params }) {
                 {postData.tech && (
                     <div className="tech project_dec mb_fix">
                         <h5>Tech & Technique</h5>
-                        <p>{postData.tech}</p>
+                        <p>{postData.tech.join(' / ')}</p>
                     </div>
                 )}
 
@@ -145,12 +192,14 @@ export default async function Page({ params }) {
 
             {/* CAT */}
             {postData.cat && (
-                <div className="acctions project_dec mb_fix">
+                <div className="cat btns project_dec">
                     <ul>
                         {postData.cat.map((link, index) => (
-                            <li key={index} className="hover">
+                            <li key={index}>
                                 <a href={link.url} target="_blank" rel="noopener noreferrer">
                                     {link.name}
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
                                 </a>
                             </li>
                         ))}
