@@ -103,7 +103,7 @@ export async function getPostDetails(postId) {
             cat: [
                 { name: 'Live Demo', url: 'http://webtoolsmith.com/' }
             ],
-            year: "2024",
+            year: "Nov 2024 - Present",
             tech: ["React", "Next.Js", "JavaScript", "HTML", "CSS"],
             summary: "An all-in-one online toolkit built with Next.js, offering CSS utilities, color converters, sorting tools, and text formatters to streamline everyday tasks.",
             description: "WebToolSmith is a versatile collection of tools designed to simplify daily tasks for developers, designers, and content creators. Built with Next.js, it offers CSS generators, color converters, sorting tools, text formatters, and more to boost productivity. As a full-stack developer, I often handled repetitive tasks manually, so I built WebToolSmith to automate them for a wider audience. My goal is to create a user-friendly, all-in-one platform that streamlines workflows and saves time. With continuous updates and new tools added regularly, WebToolSmith is a growing hub for everyday efficiency.",
