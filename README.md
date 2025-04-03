@@ -7,3 +7,6 @@ Welcome to my personal portfolio website! This project showcases my skills, expe
 
 ## 📸 Preview  
 Live Demo: [karthikshetty.info](https://karthikshetty.info/)
+
+## 📜 License
+This project is open-source under the MIT License.
