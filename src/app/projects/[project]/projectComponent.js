@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image"; // Next.js Image component for optimized image loading
 import { useRouter } from 'next/navigation';
+import { ReactLenis } from 'lenis/react'
 
 export default function ProjectComponent({ projectData }) {
     // Back Button
@@ -11,6 +12,7 @@ export default function ProjectComponent({ projectData }) {
     };
 
     return (
+        <ReactLenis root>
             <main className="project_page_main">
                 {/* Back button for navigation */}
                 <div className="project_back_div">
@@ -161,5 +163,6 @@ export default function ProjectComponent({ projectData }) {
                     </div>
                 )}
             </main>
+        </ReactLenis>
     );
 }

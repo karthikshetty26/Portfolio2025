@@ -1,3 +1,4 @@
+"use client"
 import { memo } from 'react';
 import HOMECSS from './Landing.module.css';
 import TechItem from '@/components/tech-item/tech-item'
@@ -5,6 +6,7 @@ import Image from 'next/image';
 import LinkedinLogo from '@/assets/img/svg/social/linkedin-logo.svg'
 import GitHubLogo from '@/assets/img/svg/social/github-logo.svg'
 import Link from 'next/link';
+import { ReactLenis } from 'lenis/react'
 
 export default function Home() {
 
@@ -120,6 +122,7 @@ export default function Home() {
   ];
 
   return (
+    <ReactLenis root>
       <main className={HOMECSS.container_main}>
         {/* Hero section with introduction */}
         <section className={HOMECSS.hero_section} id='home'>
@@ -321,5 +324,6 @@ export default function Home() {
           <div className={HOMECSS.contact_cc}>©&nbsp;2025&nbsp;Karthik Shetty</div>
         </section>
       </main>
+    </ReactLenis>
   );
 }
