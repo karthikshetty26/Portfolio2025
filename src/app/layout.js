@@ -3,6 +3,19 @@ import "./projects/projects.css"
 import NavbarUi from '@/components/navbar_ui/navbar_ui'
 import Script from "next/script";
 
+import { Poppins, Roboto } from 'next/font/google'
+
+// Google Fonts | Font Optimization
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+})
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+})
+
 export const metadata = {
   metadataBase: new URL('https://karthikshetty.info'),
   title: "Karthik Shetty | Full Stack Developer & Web Development Portfolio",
@@ -65,11 +78,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-
         {/* <Script async src="https://www.googletagmanager.com/gtag/js?id=G-9J1RVTSWHQ" />
         <Script id='google-analytics' strategy='afterInteractive'>{`
         window.dataLayer = window.dataLayer || [];
@@ -79,7 +87,7 @@ export default function RootLayout({ children }) {
         gtag('config', 'G-9J1RVTSWHQ');
         `}</Script> */}
       </head>
-      <body>
+      <body className={`${poppins.className} ${roboto.className}`}>
         <NavbarUi />
         {children}
       </body>
