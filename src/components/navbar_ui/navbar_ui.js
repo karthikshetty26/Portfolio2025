@@ -29,6 +29,7 @@ export default function NavbarUi() {
     const [theme, setTheme] = useState('light');
     const [showMenu, setShowMenu] = useState(isRootPath);
     const resfOne = useRef(null);
+    const resftwo = useRef(null);
 
     // Handle theme toggle
     const toggleTheme = () => {
@@ -39,7 +40,10 @@ export default function NavbarUi() {
     };
 
     // Handle menu toggle
-    const toggleMenu = () => setIsMenuOpen(prev => !prev);
+    const toggleMenu = () => {
+        debugger
+        setIsMenuOpen(prev => !prev)
+    };
 
     // Smooth scroll
     const handleSmoothScroll = (e) => {
@@ -87,11 +91,25 @@ export default function NavbarUi() {
 
     // Detect clicks outside menu
     useEffect(() => {
+        // const handleClickOutside = (e) => {
+        //     if (resfOne.current && !resfOne.current.contains(e.target) && !resftwo.current && resftwo.current.contains(e.target)) {
+        //         setIsMenuOpen(false)
+        //     }
+        // };
+
         const handleClickOutside = (e) => {
-            if (resfOne.current && !resfOne.current.contains(e.target)) {
-                setIsMenuOpen(false)
+            const target = e.target;
+        
+            if (
+                resfOne.current &&
+                !resfOne.current.contains(target) &&
+                resftwo.current &&
+                !resftwo.current.contains(target)
+            ) {
+                setIsMenuOpen(false);
             }
         };
+        
 
         document.addEventListener("click", handleClickOutside, true);
         return () => {
@@ -120,7 +138,7 @@ export default function NavbarUi() {
 
                 {/* Menu button - only show on root path */}
                 {showMenu && (
-                    <div className={navCSS.menu_div} onClick={toggleMenu}>
+                    <div className={navCSS.menu_div} onClick={toggleMenu} ref={resftwo}>
                         Menu&nbsp;
                         <button
                             className={isMenuOpen ? navCSS.open : ''}

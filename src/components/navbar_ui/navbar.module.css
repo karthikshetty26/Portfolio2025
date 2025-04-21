@@ -21,6 +21,7 @@
 }
 
 .theme_div.only_menu {
+   display: none;
     opacity: 0;
 }
 
