@@ -9,11 +9,13 @@ import { Poppins, Roboto } from 'next/font/google'
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: '--font-family-primary'
 })
 
 const roboto = Roboto({
   subsets: ['latin'],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: '--font-family-secondary'
 })
 
 export const metadata = {
@@ -87,7 +89,7 @@ export default function RootLayout({ children }) {
         gtag('config', 'G-9J1RVTSWHQ');
         `}</Script> */}
       </head>
-      <body className={`${poppins.className} ${roboto.className}`}>
+      <body className={`${poppins.variable} ${roboto.variable}`}>
         <NavbarUi />
         {children}
       </body>
