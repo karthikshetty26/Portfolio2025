@@ -1,6 +1,6 @@
 "use client"
 import navCSS from './navbar.module.css';
-import { useEffect, useState, memo } from 'react';
+import { useEffect, useState, memo, useRef } from 'react';
 import { usePathname } from "next/navigation";
 
 // Memoized ArrowTopRight component to reuse icon
@@ -28,8 +28,29 @@ export default function NavbarUi() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [theme, setTheme] = useState('light');
     const [showMenu, setShowMenu] = useState(isRootPath);
+    const resfOne = useRef(null);
 
-    // Effect to update showMenu when pathname changes
+    // Handle theme toggle
+    const toggleTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
+    };
+
+    // Handle menu toggle
+    const toggleMenu = () => setIsMenuOpen(prev => !prev);
+
+    // Smooth scroll
+    const handleSmoothScroll = (e) => {
+        e.preventDefault();
+        const href = e.currentTarget.getAttribute('href');
+        if (href) {
+            document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    // Update `showMenu` based on pathname
     useEffect(() => {
         setShowMenu(pathname === '/');
 
@@ -38,24 +59,6 @@ export default function NavbarUi() {
             setIsMenuOpen(false);
         }
     }, [pathname, isMenuOpen]);
-
-    // Toggle theme function
-    const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
-        document.documentElement.setAttribute('data-theme', newTheme);
-    };
-
-    // Toggle menu function
-    const toggleMenu = () => setIsMenuOpen(prev => !prev);
-
-    // Smooth scroll handler
-    const handleSmoothScroll = (e) => {
-        e.preventDefault();
-        const href = e.currentTarget.getAttribute('href');
-        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-    };
 
     // Initialize theme from local storage or system preference
     useEffect(() => {
@@ -80,6 +83,20 @@ export default function NavbarUi() {
 
         mediaQuery.addEventListener('change', handleChange);
         return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
+
+    // Detect clicks outside menu
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (resfOne.current && !resfOne.current.contains(e.target)) {
+                setIsMenuOpen(false)
+            }
+        };
+
+        document.addEventListener("click", handleClickOutside, true);
+        return () => {
+            document.removeEventListener("click", handleClickOutside, true);
+        };
     }, []);
 
     return (
@@ -121,7 +138,7 @@ export default function NavbarUi() {
             {/* Side nav */}
             <nav className={`${navCSS.side_nav} ${isMenuOpen ? navCSS.show : ''}`}>
                 {/* Side nav main section */}
-                <main className={`${navCSS.hold_nav} ${isMenuOpen ? navCSS.show : ''}`}>
+                <main className={`${navCSS.hold_nav} ${isMenuOpen ? navCSS.show : ''}`} ref={resfOne}>
                     {/* Link listing */}
                     <ul className={navCSS.show_menu_values}>
                         {MENU_ITEMS.map((item) => (
