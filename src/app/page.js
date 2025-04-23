@@ -132,10 +132,6 @@ export default function Home() {
   // GSAP animations
   const projectRefs = useRef(null);
   projectRefs.current = [];
-  const techRefs = useRef(null);
-  techRefs.current = [];
-  const blogRefs = useRef(null);
-  blogRefs.current = [];
 
   useEffect(() => {
     projectRefs.current.forEach((el) => {
