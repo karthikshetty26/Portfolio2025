@@ -1,6 +1,6 @@
 export async function getPostDetails(postId) {
     const projectDetails = {
-        aidocsense: {
+        "aidocsense": {
             title: "AI DocSense",
             type: "Team Projects",
             platform: "Web Application",
@@ -17,7 +17,7 @@ export async function getPostDetails(postId) {
             projectLinks: null,
         },
 
-        apstudio: {
+        "apstudio": {
             title: "Automated AP-BPM",
             type: "Team Projects",
             platform: "Web Application",
@@ -34,7 +34,7 @@ export async function getPostDetails(postId) {
             projectLinks: null,
         },
 
-        paytimeplus: {
+        "paytimeplus": {
             title: "PayTimePlus",
             type: "Team Projects",
             platform: "Web Application",
@@ -51,7 +51,7 @@ export async function getPostDetails(postId) {
             projectLinks: null,
         },
 
-        rentall: {
+        "rentall": {
             title: "RentALL",
             type: "Team Projects",
             platform: "Web Application",
@@ -95,7 +95,7 @@ export async function getPostDetails(postId) {
             ]
         },
 
-        webtoolsmith: {
+        "webtoolsmith": {
             title: "webtoolsmith.com",
             type: "Personal Project",
             platform: "Web Application",
