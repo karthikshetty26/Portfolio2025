@@ -13,6 +13,7 @@ import HOMECSS from './Landing.module.css';
 import { ReactLenis } from 'lenis/react'
 // GSAP
 import gsap from 'gsap/gsap-core';
+import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
