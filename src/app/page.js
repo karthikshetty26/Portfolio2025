@@ -1,11 +1,15 @@
 "use client"
-import { memo } from 'react';
-import HOMECSS from './Landing.module.css';
-import TechItem from '@/components/tech-item/tech-item'
+import { memo, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+// SVG's 
 import LinkedinLogo from '@/assets/img/svg/social/linkedin-logo.svg'
 import GitHubLogo from '@/assets/img/svg/social/github-logo.svg'
-import Link from 'next/link';
+// Components
+import TechItem from '@/components/tech-item/tech-item'
+// CSS
+import HOMECSS from './Landing.module.css';
+// Smooth page scroll
 import { ReactLenis } from 'lenis/react'
 // GSAP
 import gsap from 'gsap/gsap-core';
@@ -24,7 +28,6 @@ export default function Home() {
   ));
   HomeIcons.displayName = 'HomeIcons';
 
-  // using useMemo to avoid recreation on re-renders
   // Array to store tech stack data structure
   const TECH_STACK = [
     {
@@ -173,7 +176,6 @@ export default function Home() {
             <div className={HOMECSS.intro}>
               <p className={HOMECSS.intro_start}>Hey there! I&apos;m a passionate <strong>Full-Stack Web Developer</strong> with <strong>2+ years</strong> of professional experience turning ideas into reality, 6 completed projects, <strong>4.6k+ hours</strong> of dedicated work, and countless hours spent exploring creative side projects.</p>
             </div>
-
           </div>
 
           {/* Atom Animation Background */}
@@ -232,8 +234,8 @@ export default function Home() {
 
             <div className={HOMECSS.stack_containers}>
               {/* Map through each stack category */}
-              {TECH_STACK.map((stack, index) => (
-                <div key={index} className={HOMECSS.stack_container}>
+              {TECH_STACK.map((stack, i) => (
+                <div key={i} className={HOMECSS.stack_container}>
                   {/* Display category name */}
                   <div className={HOMECSS.stack_category}>{stack.category}</div>
                   {/* Display technologies list */}
@@ -285,7 +287,8 @@ export default function Home() {
             {blogs.map((blog) => (
               <div key={blog.id} className={HOMECSS.blog_container}>
                 {/* Link to the platform profile */}
-                <a className={HOMECSS.platform_profile_link} href={blog.platform_profile} target="_blank" rel="noopener noreferrer">
+                <a className={HOMECSS.platform_profile_link} href={blog.platform_profile}
+                  target="_blank" rel="noopener noreferrer">
                   <p className={HOMECSS.platform_name}>{blog.platform}</p>
                   <span className={HOMECSS.icon__platform_profile_link}>
                     <HomeIcons paths={["M13.0607 8.11097L14.4749 9.52518C17.2086 12.2589 17.2086 16.691 14.4749 19.4247L14.1214 19.7782C11.3877 22.5119 6.95555 22.5119 4.22188 19.7782C1.48821 17.0446 1.48821 12.6124 4.22188 9.87874L5.6361 11.293C3.68348 13.2456 3.68348 16.4114 5.6361 18.364C7.58872 20.3166 10.7545 20.3166 12.7072 18.364L13.0607 18.0105C15.0133 16.0578 15.0133 12.892 13.0607 10.9394L11.6465 9.52518L13.0607 8.11097ZM19.7782 14.1214L18.364 12.7072C20.3166 10.7545 20.3166 7.58872 18.364 5.6361C16.4114 3.68348 13.2456 3.68348 11.293 5.6361L10.9394 5.98965C8.98678 7.94227 8.98678 11.1081 10.9394 13.0607L12.3536 14.4749L10.9394 15.8891L9.52518 14.4749C6.79151 11.7413 6.79151 7.30911 9.52518 4.57544L9.87874 4.22188C12.6124 1.48821 17.0446 1.48821 19.7782 4.22188C22.5119 6.95555 22.5119 11.3877 19.7782 14.1214Z"]} />

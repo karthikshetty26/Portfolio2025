@@ -1,5 +1,6 @@
-import ERROR from './Error.module.css';
 import Link from 'next/link';
+// CSS
+import ERROR from './Error.module.css';
 
 export default function NotFound() {
     return (<>

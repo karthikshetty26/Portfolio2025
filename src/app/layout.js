@@ -1,23 +1,28 @@
+import Script from "next/script";
+// Components
+import NavbarUi from '@/components/navbar_ui/navbar_ui'
+// CSS
 import "./globals.css";
 import "./projects/projects.css"
-import NavbarUi from '@/components/navbar_ui/navbar_ui'
-import Script from "next/script";
-
+// Google Fonts
 import { Poppins, Roboto } from 'next/font/google'
 
 // Google Fonts | Font Optimization
+// Font primary
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: '--font-family-primary'
 })
 
+// Font secondary
 const roboto = Roboto({
   subsets: ['latin'],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: '--font-family-secondary'
 })
 
+// Global metadata
 export const metadata = {
   metadataBase: new URL('https://karthikshetty.info'),
   title: "Karthik Shetty | Full Stack Developer & Web Development Portfolio",
@@ -76,6 +81,7 @@ export const metadata = {
   }
 };
 
+// Application RootLayout
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

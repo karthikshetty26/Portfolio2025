@@ -1,7 +1,11 @@
-import { notFound } from "next/navigation"; // Utility function to handle 404 errors
-import { getPostDetails } from '../projectInfo'; // Function to fetch project details based on URL params
-import ProjectComponent from "./projectComponent" // Project component to show project data
+// Utility function to handle 404 errors
+import { notFound } from "next/navigation";
+// Function to fetch project details based on URL params
+import { getPostDetails } from '../projectInfo';
+// Components: To show project data
+import ProjectComponent from "./projectComponent"
 
+// Dynamic MetaData
 export async function generateMetadata({ params }) {
     // Await params before accessing properties
     const resolvedParams = await params;

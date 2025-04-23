@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image"; // Next.js Image component for optimized image loading
 import { useRouter } from 'next/navigation';
+// Smooth page scroll
 import { ReactLenis } from 'lenis/react'
 
 export default function ProjectComponent({ projectData }) {
