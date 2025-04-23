@@ -7,6 +7,10 @@ import LinkedinLogo from '@/assets/img/svg/social/linkedin-logo.svg'
 import GitHubLogo from '@/assets/img/svg/social/github-logo.svg'
 import Link from 'next/link';
 import { ReactLenis } from 'lenis/react'
+// GSAP
+import gsap from 'gsap/gsap-core';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
 
@@ -121,6 +125,38 @@ export default function Home() {
     { href: 'https://github.com/karthikshetty26', src: GitHubLogo, alt: 'GitHub' }
   ];
 
+  // GSAP animations
+  const projectRefs = useRef(null);
+  projectRefs.current = [];
+  const techRefs = useRef(null);
+  techRefs.current = [];
+  const blogRefs = useRef(null);
+  blogRefs.current = [];
+
+  useEffect(() => {
+    projectRefs.current.forEach((el) => {
+      const anim = gsap.fromTo(
+        el,
+        { y: 100, opacity: 0.4 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.1,
+          ease: 'power4.inOut',
+          paused: true, // We'll manually play/pause
+        }
+      );
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 80%',
+        onEnter: () => anim.play(),           // Scroll down — play animation
+        onLeaveBack: () => anim.reverse(),    // Scroll back up — reverse animation
+        // markers: true,
+      });
+    });
+  }, []);
+
   return (
     <ReactLenis root>
       <main className={HOMECSS.container_main}>
@@ -220,8 +256,10 @@ export default function Home() {
           </div>
 
           {/* Map through projects array to render each project */}
-          {projects.map((project) => (
-            <Link key={project.id} href={project.page_link} className={HOMECSS.project_container}>
+          {projects.map((project, i) => (
+            <Link key={project.id} href={project.page_link} className={HOMECSS.project_container} ref={(el) => {
+              if (el) projectRefs.current[i] = el;
+            }}>
 
               <div className={HOMECSS.project_container_hr}></div>
 
