@@ -5,10 +5,6 @@
   --foreground: #363636;
   --foreground-05: #3636368f;
   --overlay: #f9f9f9;
-
-  /* Font */
-  /* --font-family-primary: "Poppins", sans-serif; */
-  /* --font-family-secondary: "Roboto", sans-serif; */
 }
 
 [data-theme="dark"] {
