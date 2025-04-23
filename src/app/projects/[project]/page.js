@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 // Function to fetch project details based on URL params
 import { getPostDetails } from '../projectInfo';
 // Components: To show project data
-import ProjectComponent from "./projectComponent"
+import Project from "./page__use_client"
 
 // Dynamic MetaData
 export async function generateMetadata({ params }) {
@@ -69,6 +69,6 @@ export default async function Page({ params }) {
 
     // Render page data
     return (
-        <ProjectComponent projectData={projectData} />
+        <Project projectData={projectData} />
     );
 }

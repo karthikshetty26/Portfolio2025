@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 // Smooth page scroll
 import { ReactLenis } from 'lenis/react'
 
-export default function ProjectComponent({ projectData }) {
+export default function Project({ projectData }) {
     // Back Button
     const router = useRouter();
 
