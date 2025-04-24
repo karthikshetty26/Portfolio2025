@@ -118,7 +118,7 @@ export default function NavbarUi() {
 
     return (
         <>
-            <main className={navCSS.float_nav}>
+            <main className={navCSS.float_nav} ref={resftwo}>
                 {/* Theme toggle */}
                 <div className={`${navCSS.theme_div} ${isMenuOpen ? navCSS.only_menu : ''}`} onClick={toggleTheme}>
                 {theme === 'light' ? 'Dark' : 'Light'}
@@ -136,7 +136,7 @@ export default function NavbarUi() {
 
                 {/* Menu button - only show on root path */}
                 {showMenu && (
-                    <div className={navCSS.menu_div} onClick={toggleMenu} ref={resftwo}>
+                    <div className={navCSS.menu_div} onClick={toggleMenu}>
                         {isMenuOpen ? 'Close': 'Menu'}
                     </div>
                 )}
