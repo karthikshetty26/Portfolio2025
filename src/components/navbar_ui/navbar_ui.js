@@ -137,16 +137,7 @@ export default function NavbarUi() {
                 {/* Menu button - only show on root path */}
                 {showMenu && (
                     <div className={navCSS.menu_div} onClick={toggleMenu} ref={resftwo}>
-                        {isMenuOpen ? 'Close': 'Menu'}&nbsp;
-                        <button
-                            className={isMenuOpen ? navCSS.open : ''}
-                            id={navCSS.navIcon}
-                        >
-                            <span className={navCSS.span_icon}></span>
-                            <span className={navCSS.span_icon}></span>
-                            <span className={navCSS.span_icon}></span>
-                            <span className={navCSS.span_icon}></span>
-                        </button>
+                        {isMenuOpen ? 'Close': 'Menu'}
                     </div>
                 )}
             </main>
