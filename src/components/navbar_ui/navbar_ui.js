@@ -1,7 +1,8 @@
 "use client"
-import navCSS from './navbar.module.css';
 import { useEffect, useState, memo, useRef } from 'react';
 import { usePathname } from "next/navigation";
+// CSS
+import navCSS from './navbar.module.css';
 
 // Memoized ArrowTopRight component to reuse icon
 const ArrowTopRight = memo(() => (
@@ -24,9 +25,8 @@ const MENU_ITEMS = [
 export default function NavbarUi() {
     const pathname = usePathname();
     const isRootPath = pathname === '/';
-
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState('dark');
     const [showMenu, setShowMenu] = useState(isRootPath);
     const resfOne = useRef(null);
     const resftwo = useRef(null);
@@ -41,11 +41,10 @@ export default function NavbarUi() {
 
     // Handle menu toggle
     const toggleMenu = () => {
-        debugger
         setIsMenuOpen(prev => !prev)
     };
 
-    // Smooth scroll
+    // Smooth scroll to section
     const handleSmoothScroll = (e) => {
         e.preventDefault();
         const href = e.currentTarget.getAttribute('href');
@@ -85,34 +84,34 @@ export default function NavbarUi() {
             }
         };
 
+        // Add event listener for system theme changes
         mediaQuery.addEventListener('change', handleChange);
+        // Cleanup event listener on component unmount
         return () => mediaQuery.removeEventListener('change', handleChange);
     }, []);
 
     // Detect clicks outside menu
     useEffect(() => {
-        // const handleClickOutside = (e) => {
-        //     if (resfOne.current && !resfOne.current.contains(e.target) && !resftwo.current && resftwo.current.contains(e.target)) {
-        //         setIsMenuOpen(false)
-        //     }
-        // };
-
+        // Function to handle clicks outside the menu
         const handleClickOutside = (e) => {
             const target = e.target;
         
+            // Check if the click is outside the menu and exclude the menu button click
             if (
                 resfOne.current &&
                 !resfOne.current.contains(target) &&
                 resftwo.current &&
                 !resftwo.current.contains(target)
             ) {
+                // Close the menu if it's open
                 setIsMenuOpen(false);
             }
         };
         
-
+        // Add event listener to check for clicks outside the menu
         document.addEventListener("click", handleClickOutside, true);
         return () => {
+            // Cleanup event listener
             document.removeEventListener("click", handleClickOutside, true);
         };
     }, []);
@@ -122,8 +121,7 @@ export default function NavbarUi() {
             <main className={navCSS.float_nav}>
                 {/* Theme toggle */}
                 <div className={`${navCSS.theme_div} ${isMenuOpen ? navCSS.only_menu : ''}`} onClick={toggleTheme}>
-                    {theme === 'light' ? 'Dark' : 'Light'}&nbsp;&nbsp;
-
+                {theme === 'light' ? 'Dark' : 'Light'}
                     <button className={navCSS.dark_light_btn}>
                         <span>
                             {theme === 'light' ? (
@@ -139,7 +137,7 @@ export default function NavbarUi() {
                 {/* Menu button - only show on root path */}
                 {showMenu && (
                     <div className={navCSS.menu_div} onClick={toggleMenu} ref={resftwo}>
-                        Menu&nbsp;
+                        {isMenuOpen ? 'Close': 'Menu'}&nbsp;
                         <button
                             className={isMenuOpen ? navCSS.open : ''}
                             id={navCSS.navIcon}

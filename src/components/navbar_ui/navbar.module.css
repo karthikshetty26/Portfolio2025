@@ -21,18 +21,20 @@
 }
 
 .theme_div.only_menu {
-   display: none;
+    transform: scale(0);
     opacity: 0;
 }
 
 /* Theme toggle button */
 .dark_light_btn {
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
     border: none;
     background-color: transparent;
     transition: all 0.7s ease;
     cursor: pointer;
+    opacity: 0.8;
 }
 
 /* Theme toggle button hover effect */
