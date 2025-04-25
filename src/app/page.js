@@ -5,6 +5,7 @@ import Link from 'next/link';
 // SVG's 
 import LinkedinLogo from '@/assets/img/svg/social/linkedin-logo.svg'
 import GitHubLogo from '@/assets/img/svg/social/github-logo.svg'
+import InstagramLogo from '@/assets/img/svg/social/instagram-logo.svg'
 // Components
 import TechItem from '@/components/tech-item/tech-item'
 // CSS
@@ -126,13 +127,15 @@ export default function Home() {
   // Contact links data for easier scalability and readability
   const SOCIAL_LINKS = [
     { href: 'https://www.linkedin.com/in/karthikshetty26/', src: LinkedinLogo, alt: 'LinkedIn' },
-    { href: 'https://github.com/karthikshetty26', src: GitHubLogo, alt: 'GitHub' }
+    { href: 'https://github.com/karthikshetty26', src: GitHubLogo, alt: 'GitHub' },
+    { href: 'https://instagram.com/karthik.shetty.26/', src: InstagramLogo, alt: 'Instagram' }
   ];
 
   // GSAP animations
   const projectRefs = useRef(null);
   projectRefs.current = [];
 
+  // GSAP animation for project elements
   useEffect(() => {
     projectRefs.current.forEach((el) => {
       const anim = gsap.fromTo(
@@ -143,16 +146,16 @@ export default function Home() {
           opacity: 1,
           duration: 0.1,
           ease: 'power4.inOut',
-          paused: true, // We'll manually play/pause
+          paused: true,
         }
       );
 
+      // Create a ScrollTrigger instance for each project element
       ScrollTrigger.create({
         trigger: el,
         start: 'top 80%',
         onEnter: () => anim.play(),           // Scroll down — play animation
         onLeaveBack: () => anim.reverse(),    // Scroll back up — reverse animation
-        // markers: true,
       });
     });
   }, []);
@@ -171,7 +174,7 @@ export default function Home() {
           <div className={HOMECSS.hero_text}>
 
             <div className={HOMECSS.intro}>
-              <p className={HOMECSS.intro_start}>Hey there! I&apos;m a passionate <strong>Full-Stack Web Developer</strong> with <strong>2+ years</strong> of professional experience turning ideas into reality, 6 completed projects, <strong>4.6k+ hours</strong> of dedicated work, and countless hours spent exploring creative side projects.</p>
+              <p className={HOMECSS.intro_start}>Hey there! I&apos;m a passionate <strong>Full-Stack Web Developer</strong> with <strong>3+ years</strong> of professional experience turning ideas into reality, 6 completed projects, <strong>4.6k+ hours</strong> of dedicated work, and countless hours spent exploring creative side projects.</p>
             </div>
           </div>
 
@@ -259,9 +262,7 @@ export default function Home() {
             <Link key={project.id} href={project.page_link} className={HOMECSS.project_container} ref={(el) => {
               if (el) projectRefs.current[i] = el;
             }}>
-
               <div className={HOMECSS.project_container_hr}></div>
-
               <div className={HOMECSS.project_container_content}>
                 <p className={HOMECSS.no}><i>more on project</i></p>
                 <span>
