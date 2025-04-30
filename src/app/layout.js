@@ -94,6 +94,7 @@ export default function RootLayout({ children }) {
       
         gtag('config', 'G-9J1RVTSWHQ');
         `}</Script>
+        <meta name="google-site-verification" content="cCP8Kw8vPOGAi55eKNzp5ob1QtdHelpWTMyJPSkRCgU" />
       </head>
       <body className={`${poppins.variable} ${roboto.variable}`}>
         <NavbarUi />
