@@ -16,7 +16,7 @@ ArrowTopRight.displayName = 'ArrowTopRight';
 const MENU_ITEMS = [
     { name: 'HOME', href: 'home' },
     { name: 'ABOUT', href: 'about' },
-    { name: 'MY STACK', href: 'stack' },
+    { name: (<>MY&nbsp;STACK</>), href: 'stack' },
     { name: 'PROJECTS', href: 'projects' },
     { name: 'BLOGS', href: 'blogs' },
     { name: 'CONTACT', href: 'contact' }
